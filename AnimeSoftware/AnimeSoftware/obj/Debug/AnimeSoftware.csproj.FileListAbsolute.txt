@@ -1,0 +1,6 @@
+C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.csprojAssemblyReference.cache
+C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\bin\Debug\AnimeSoftware.exe.config
+C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\bin\Debug\AnimeSoftware.exe
+C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\bin\Debug\AnimeSoftware.pdb
+C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.exe
+C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.pdb
