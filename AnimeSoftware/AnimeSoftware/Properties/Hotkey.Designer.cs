@@ -34,5 +34,29 @@ namespace AnimeSoftware.Properties {
                 this["blockKey"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public int doorKey {
+            get {
+                return ((int)(this["doorKey"]));
+            }
+            set {
+                this["doorKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string a {
+            get {
+                return ((string)(this["a"]));
+            }
+            set {
+                this["a"] = value;
+            }
+        }
     }
 }

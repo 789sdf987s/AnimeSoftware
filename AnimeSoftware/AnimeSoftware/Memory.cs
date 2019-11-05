@@ -20,6 +20,9 @@ namespace AnimeSoftware
         [DllImport("kernel32.dll")]
         internal static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, IntPtr nSize, ref UInt32 lpNumberOfBytesWritten);
 
+        [DllImport("kernel32.dll")]
+        public static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] buffer, int size, int lpNumberOfBytesWritten);
+
         const int PROCESS_VM_OPERATION = 0x0008;
         const int PROCESS_VM_READ = 0x0010;
         const int PROCESS_VM_WRITE = 0x0020;
@@ -28,9 +31,11 @@ namespace AnimeSoftware
         public static IntPtr pHandle;
 
         public static Int32 Client;
+        public static Int32 ClientSize;
         public static Int32 Engine;
+        public static Int32 EngineSize;
 
-        
+
 
         public static bool OpenProcess(string name)
         {
@@ -68,14 +73,19 @@ namespace AnimeSoftware
                     if (module.ModuleName == "client_panorama.dll")
                     {
                         Client = (Int32)module.BaseAddress;
+                        ClientSize = (Int32)module.ModuleMemorySize;
                     }
                     else if (module.ModuleName == "engine.dll")
                     {
                         Engine = (Int32)module.BaseAddress;
+                        EngineSize = (Int32)module.ModuleMemorySize;
                     }
                 }
                 if ((IntPtr)Client == IntPtr.Zero || (IntPtr)Engine == IntPtr.Zero)
+                {
+                    Console.WriteLine("Cant get module.");
                     return false;
+                }
 
                 return true;
             }
@@ -119,6 +129,33 @@ namespace AnimeSoftware
             var structure = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
             handle.Free();
             return structure;
+        }
+
+        public static int FindPattern(byte[] pattern, string mask, int moduleBase, int moduleSize)
+        {
+            byte[] moduleBytes = new byte[moduleSize];
+            uint numBytes = 0;
+
+            if (ReadProcessMemory(Memory.pHandle, (IntPtr)moduleBase, moduleBytes, (uint)moduleSize, ref numBytes))
+            {
+                for (int i = 0; i < moduleSize; i++)
+                {
+                    bool found = true;
+
+                    for (int l = 0; l < mask.Length; l++)
+                    {
+                        found = mask[l] == '?' || moduleBytes[l + i] == pattern[l];
+
+                        if (!found)
+                            break;
+                    }
+
+                    if (found)
+                        return i;
+                }
+            }
+
+            return 0;
         }
     }
 }
