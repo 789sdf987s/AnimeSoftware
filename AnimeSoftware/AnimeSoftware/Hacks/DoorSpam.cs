@@ -21,9 +21,9 @@ namespace AnimeSoftware
                 while ((DllImport.GetAsyncKeyState(Properties.Hotkey.Default.doorKey) & 0x8000) != 0)
                 {
                     ClientCMD.Exec("+use");
-                    Thread.Sleep(10);
+                    Thread.Sleep(15);
                     ClientCMD.Exec("-use");
-                    Thread.Sleep(10);
+                    Thread.Sleep(15);
                 }
                 
                 Thread.Sleep(50);
