@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D13AFF32-7329-4473-B9FE-CC4EA2F1F96C}</ProjectGuid>
+    <ProjectGuid>{617F8F5F-8917-4843-AAB3-66DA09EB7DB7}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>AnimeSoftware</RootNamespace>
     <AssemblyName>AnimeSoftware</AssemblyName>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -39,10 +42,16 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hacks\NameChanger.cs" />
+    <Compile Include="Hotkey.cs" />
+    <Compile Include="Objects\ConVar.cs" />
     <Compile Include="Hacks\Aimbot.cs" />
     <Compile Include="Hacks\BHop.cs" />
     <Compile Include="Hacks\BlockBot.cs" />
@@ -50,6 +59,12 @@
     <Compile Include="Injections\DllImport.cs" />
     <Compile Include="Hacks\DoorSpam.cs" />
     <Compile Include="Objects\Entity.cs" />
+    <Compile Include="AnimeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimeForm.Designer.cs">
+      <DependentUpon>AnimeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Objects\LocalPlayer.cs" />
     <Compile Include="Math.cs" />
     <Compile Include="Memory.cs" />
@@ -63,14 +78,34 @@
     </Compile>
     <Compile Include="Offsets\ScannedOffsets.cs" />
     <Compile Include="Structs.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <EmbeddedResource Include="AnimeForm.resx">
+      <DependentUpon>AnimeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <None Include="Properties\Hotkey.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Hotkey.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

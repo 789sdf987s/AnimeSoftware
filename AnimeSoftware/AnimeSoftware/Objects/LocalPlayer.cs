@@ -22,6 +22,31 @@ namespace AnimeSoftware
             }
         }
 
+        public static string Name
+        {
+            get
+            {
+
+                int radarBasePtr = 0x78;// : 0x54;
+                int radarStructSize = 0x174;// : 0x1E0;
+                int radarStructPos = 0x18;// : 0x24;
+
+                Encoding enc = Encoding.UTF8;// : Encoding.Unicode;
+
+                int radarBase = Memory.Read<int>(Memory.Client + signatures.dwRadarBase);
+
+                int radarPtr = Memory.Read<int>(radarBase + radarBasePtr);
+
+                int ind = Index + 1;
+
+                var nameAddr = radarPtr + ind * radarStructSize + radarStructPos;
+                return Memory.ReadString(nameAddr, 64, enc);
+
+            }
+        }
+
+        public static int Index { get; set; }
+
         public static Vector3 Position
         {
             get

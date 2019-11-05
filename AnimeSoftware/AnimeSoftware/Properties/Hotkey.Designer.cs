@@ -49,13 +49,13 @@ namespace AnimeSoftware.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string a {
+        [global::System.Configuration.DefaultSettingValueAttribute("90")]
+        public int defaultNick {
             get {
-                return ((string)(this["a"]));
+                return ((int)(this["defaultNick"]));
             }
             set {
-                this["a"] = value;
+                this["defaultNick"] = value;
             }
         }
     }

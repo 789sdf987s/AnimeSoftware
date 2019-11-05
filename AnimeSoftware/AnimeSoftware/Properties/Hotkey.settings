@@ -8,8 +8,8 @@
     <Setting Name="doorKey" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">20</Value>
     </Setting>
-    <Setting Name="a" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="defaultNick" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">90</Value>
     </Setting>
   </Settings>
 </SettingsFile>

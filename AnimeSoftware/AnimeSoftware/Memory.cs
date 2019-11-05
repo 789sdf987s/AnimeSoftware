@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.IO;
 
 namespace AnimeSoftware
 {
@@ -16,6 +17,9 @@ namespace AnimeSoftware
 
         [DllImport("Kernel32.dll")]
         internal static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, UInt32 nSize, ref UInt32 lpNumberOfBytesRead);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [Out] byte[] lpBuffer, int dwSize, out IntPtr lpNumberOfBytesRead);
 
         [DllImport("kernel32.dll")]
         internal static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, IntPtr nSize, ref UInt32 lpNumberOfBytesWritten);
@@ -34,6 +38,8 @@ namespace AnimeSoftware
         public static Int32 ClientSize;
         public static Int32 Engine;
         public static Int32 EngineSize;
+        public static Int32 vstdlib;
+        public static Int32 vstdlibSize;
 
 
 
@@ -80,8 +86,13 @@ namespace AnimeSoftware
                         Engine = (Int32)module.BaseAddress;
                         EngineSize = (Int32)module.ModuleMemorySize;
                     }
+                    else if (module.ModuleName == "vstdlib.dll")
+                    {
+                        vstdlib = (Int32)module.BaseAddress;
+                        vstdlibSize = (Int32)module.ModuleMemorySize;
+                    }
                 }
-                if ((IntPtr)Client == IntPtr.Zero || (IntPtr)Engine == IntPtr.Zero)
+                if ((IntPtr)Client == IntPtr.Zero || (IntPtr)Engine == IntPtr.Zero || (IntPtr)vstdlib == IntPtr.Zero)
                 {
                     Console.WriteLine("Cant get module.");
                     return false;
@@ -129,6 +140,44 @@ namespace AnimeSoftware
             var structure = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
             handle.Free();
             return structure;
+        }
+
+
+        public static string ReadString(Int32 address, int bufferSize, Encoding enc)
+        {
+            byte[] buffer = new byte[bufferSize];
+            UInt32 nBytesRead = 0;
+            bool success = ReadProcessMemory(pHandle, (IntPtr)address, buffer, (UInt32)bufferSize, ref nBytesRead);
+            string text = enc.GetString(buffer);
+            if (text.Contains('\0'))
+                text = text.Substring(0, text.IndexOf('\0'));
+            return text;
+        }
+
+        public static string ReadText(IntPtr hProcess, IntPtr address)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int offset = 0;
+                byte read;
+                while ((read = ReadMemory(hProcess, address + offset, 1)[0]) != 0)
+                {
+                    ms.WriteByte(read);
+                    offset++;
+                }
+                var data = ms.ToArray();
+                return Encoding.UTF8.GetString(data, 0, data.Length);
+            }
+        }
+
+        public static byte[] ReadMemory(IntPtr hProcess, IntPtr address, int length)
+        {
+            byte[] data = new byte[length];
+            if (!ReadProcessMemory(hProcess, address, data, data.Length, out IntPtr unused))
+            {
+                return null;
+            }
+            return data;
         }
 
         public static int FindPattern(byte[] pattern, string mask, int moduleBase, int moduleSize)

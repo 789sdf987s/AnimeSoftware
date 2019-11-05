@@ -1,6 +1,9 @@
-C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.csprojAssemblyReference.cache
-C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\bin\Debug\AnimeSoftware.exe.config
-C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\bin\Debug\AnimeSoftware.exe
-C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\bin\Debug\AnimeSoftware.pdb
-C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.exe
-C:\Users\sagirilover\source\repos\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.pdb
+D:\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.csprojAssemblyReference.cache
+D:\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.Properties.Resources.resources
+D:\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.csproj.GenerateResource.cache
+D:\AnimeSoftware\AnimeSoftware\bin\Debug\AnimeSoftware.exe.config
+D:\AnimeSoftware\AnimeSoftware\bin\Debug\AnimeSoftware.exe
+D:\AnimeSoftware\AnimeSoftware\bin\Debug\AnimeSoftware.pdb
+D:\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.exe
+D:\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.pdb
+D:\AnimeSoftware\AnimeSoftware\obj\Debug\AnimeSoftware.AnimeForm.resources
