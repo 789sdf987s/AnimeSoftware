@@ -8,6 +8,7 @@ This is not a hack in the typical sense.  It is not intended to dominate opponen
 - BlockBot.
 - Door spammer.
 - ClientCMD class.
+- BHop
 
 ### TODO
 - Runboost bot.
