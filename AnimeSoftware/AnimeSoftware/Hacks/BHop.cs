@@ -13,12 +13,15 @@ namespace AnimeSoftware
         {
             while (true)
             {
+                if(!Properties.Settings.Default.bhop)
+                    continue;
                 if (!LocalPlayer.InGame)
                     continue;
                 if (LocalPlayer.Health <= 0)
                     continue;
                 if (LocalPlayer.Speed <= 0)
                     continue;
+                
 
                 if ((DllImport.GetAsyncKeyState(0x20) & 0x8000) != 0) 
                     if (LocalPlayer.Flags == 257 || LocalPlayer.Flags == 263) 

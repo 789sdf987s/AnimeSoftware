@@ -52,7 +52,6 @@ namespace AnimeSoftware
             }
             catch
             {
-                Console.WriteLine("Process not found.");
                 return false;
             }
         }
@@ -65,7 +64,6 @@ namespace AnimeSoftware
             }
             catch
             {
-                Console.WriteLine("Can't get handle.");
                 return false;
             }
         }
@@ -94,7 +92,6 @@ namespace AnimeSoftware
                 }
                 if ((IntPtr)Client == IntPtr.Zero || (IntPtr)Engine == IntPtr.Zero || (IntPtr)vstdlib == IntPtr.Zero)
                 {
-                    Console.WriteLine("Cant get module.");
                     return false;
                 }
 

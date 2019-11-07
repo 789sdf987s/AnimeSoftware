@@ -13,14 +13,16 @@ namespace AnimeSoftware
         {
             while (true)
             {
+                if (!Properties.Settings.Default.doorspammer)
+                    continue;
                 if (!LocalPlayer.InGame)
                     continue;
                 if (LocalPlayer.Health <= 0)
                     continue;
 
-                while ((DllImport.GetAsyncKeyState(Properties.Hotkey.Default.doorKey) & 0x8000) != 0)
+                while ((DllImport.GetAsyncKeyState(Properties.Hotkey.Default.doorspammerKey) & 0x8000) != 0)
                 {
-                    ClientCMD.Exec("+use");
+                    ClientCMD.Exec("+use");  // I did not add this to LocalPlayer to avoid delay. But i dont try, maybe this will not happen lol
                     Thread.Sleep(15);
                     ClientCMD.Exec("-use");
                     Thread.Sleep(15);

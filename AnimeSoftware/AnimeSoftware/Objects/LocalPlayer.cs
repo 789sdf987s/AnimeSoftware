@@ -54,7 +54,6 @@ namespace AnimeSoftware
                     if (x.Ptr == Ptr)
                     {
                         Index = x.Index;
-                        Console.WriteLine(Index);
                         break;
                     }
                 }

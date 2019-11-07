@@ -19,19 +19,17 @@ namespace AnimeSoftware
 
                 if (LocalPlayer.InGame && !Update)
                 {
-
-                    ForceUpdate();
-                   
+                    PreLoad();
                 }
                 Thread.Sleep(1000);
             }
         }
-        public static void ForceUpdate()
-        {
 
+        public static void PreLoad()
+        {
+            Update = true;
             LocalPlayer.GetIndex();
             LocalPlayer.GetName();
-            Update = true;
         }
     }
 }

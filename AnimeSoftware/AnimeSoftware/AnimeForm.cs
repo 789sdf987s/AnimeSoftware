@@ -18,8 +18,6 @@ namespace AnimeSoftware
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
-        
-
         public AnimeForm()
         {
             InitializeComponent();
@@ -30,15 +28,23 @@ namespace AnimeSoftware
 
             while (!Init())
             {
-                Console.Write("Can't attach process.");
+                DialogResult result = MessageBox.Show("The game is not open.\nAlso make sure that you open the application as administrator.", "Can't attach to process", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
+                switch (result)
+                {
+                    case DialogResult.Retry:
+                        break;
+                    case DialogResult.Cancel:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Environment.Exit(0);
+                        break;
+                }
                 Thread.Sleep(100);
             }
-            Console.WriteLine(String.Format("Succses: pHandle is {0}", Memory.pHandle));
-            Console.WriteLine("vstdlib: " + Memory.vstdlib);
             ScannedOffsets.Init();
             Start();
-            Checks.ForceUpdate();
-            UpdateNickBox();
+            
         }
 
 
@@ -72,6 +78,8 @@ namespace AnimeSoftware
                 IsBackground = true,
             };
             ChecksThread.Start();
+
+            
         }
 
 
@@ -84,6 +92,7 @@ namespace AnimeSoftware
             nickBox.Rows.Add(LocalPlayer.Index, LocalPlayer.Name);
             foreach (Entity x in Entity.List())
             {
+                
                 Color cellColor;
                 if (!x.isTeam)
                     cellColor = Color.Red;
@@ -97,15 +106,12 @@ namespace AnimeSoftware
         {
             if (!Memory.OpenProcess("csgo"))
                 return false;
-            Console.WriteLine("Process opened");
-            Thread.Sleep(500);
+            Thread.Sleep(100);
             if (!Memory.ProcessHandle())
                 return false;
-            Console.WriteLine("Process handled");
-            Thread.Sleep(500);
+            Thread.Sleep(100);
             if (!Memory.GetModules())
                 return false;
-            Console.WriteLine("Succses");
             return true;
         }
 
@@ -151,7 +157,72 @@ namespace AnimeSoftware
 
         private void kickButton_Click(object sender, EventArgs e)
         {
+            // idk how get UserID lol
+        }
 
+        private void AnimeForm_Shown(object sender, EventArgs e)
+        {
+            
+            UpdateNickBox();
+
+            InitCheckBox();
+            InitHotkey();
+        }
+
+        public void InitCheckBox()
+        {
+            bhopCheckBox.Checked = Properties.Settings.Default.bhop;
+            doorspammerCheckBox.Checked = Properties.Settings.Default.doorspammer;
+            blockbotCheckBox.Checked = Properties.Settings.Default.blockbot;
+        }
+        public void InitHotkey()
+        {
+            blockbotButton.Text = ((Keys)Properties.Hotkey.Default.blockbotKey).ToString();
+            doorspammerButton.Text = ((Keys)Properties.Hotkey.Default.doorspammerKey).ToString();
+        }
+
+        private void bhopCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.bhop = bhopCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void doorspammerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.doorspammer = doorspammerCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void blockbotCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.blockbot = blockbotCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void doorspammerButton_Click(object sender, EventArgs e)
+        {
+            doorspammerButton.Text = "Press key";
+        }
+
+        private void blockbotButton_Click(object sender, EventArgs e)
+        {
+            blockbotButton.Text = "Press key";
+        }
+
+        private void doorspammerButton_KeyUp(object sender, KeyEventArgs e)
+        {
+            Properties.Hotkey.Default.doorspammerKey = e.KeyValue;
+            Properties.Hotkey.Default.Save();
+            InitHotkey();
+            label1.Focus();
+        }
+
+        private void blockbotButton_KeyUp(object sender, KeyEventArgs e)
+        {
+            Properties.Hotkey.Default.blockbotKey = e.KeyValue;
+            Properties.Hotkey.Default.Save();
+            InitHotkey();
+            label1.Focus();
         }
     }
 }

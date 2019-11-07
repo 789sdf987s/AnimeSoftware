@@ -39,15 +39,20 @@
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resetButton = new System.Windows.Forms.Button();
             this.kickButton = new System.Windows.Forms.Button();
+            this.bhopCheckBox = new System.Windows.Forms.CheckBox();
+            this.doorspammerCheckBox = new System.Windows.Forms.CheckBox();
+            this.blockbotCheckBox = new System.Windows.Forms.CheckBox();
+            this.doorspammerButton = new System.Windows.Forms.Button();
+            this.blockbotButton = new System.Windows.Forms.Button();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
             this.SuspendLayout();
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(398, 62);
+            this.refreshButton.Location = new System.Drawing.Point(389, 64);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshButton.Size = new System.Drawing.Size(75, 25);
             this.refreshButton.TabIndex = 2;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
@@ -55,7 +60,7 @@
             // 
             // changeButton
             // 
-            this.changeButton.Location = new System.Drawing.Point(308, 62);
+            this.changeButton.Location = new System.Drawing.Point(299, 64);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(75, 25);
             this.changeButton.TabIndex = 5;
@@ -145,9 +150,9 @@
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(308, 123);
+            this.resetButton.Location = new System.Drawing.Point(299, 125);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(75, 23);
+            this.resetButton.Size = new System.Drawing.Size(75, 25);
             this.resetButton.TabIndex = 11;
             this.resetButton.Text = "Reset name";
             this.resetButton.UseVisualStyleBackColor = true;
@@ -155,13 +160,69 @@
             // 
             // kickButton
             // 
-            this.kickButton.Location = new System.Drawing.Point(308, 94);
+            this.kickButton.Enabled = false;
+            this.kickButton.Location = new System.Drawing.Point(299, 95);
             this.kickButton.Name = "kickButton";
-            this.kickButton.Size = new System.Drawing.Size(75, 23);
+            this.kickButton.Size = new System.Drawing.Size(75, 25);
             this.kickButton.TabIndex = 12;
             this.kickButton.Text = "Vote kick";
             this.kickButton.UseVisualStyleBackColor = true;
             this.kickButton.Click += new System.EventHandler(this.kickButton_Click);
+            // 
+            // bhopCheckBox
+            // 
+            this.bhopCheckBox.AutoSize = true;
+            this.bhopCheckBox.Location = new System.Drawing.Point(299, 258);
+            this.bhopCheckBox.Name = "bhopCheckBox";
+            this.bhopCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.bhopCheckBox.TabIndex = 13;
+            this.bhopCheckBox.Text = "BHop";
+            this.bhopCheckBox.UseVisualStyleBackColor = true;
+            this.bhopCheckBox.CheckedChanged += new System.EventHandler(this.bhopCheckBox_CheckedChanged);
+            // 
+            // doorspammerCheckBox
+            // 
+            this.doorspammerCheckBox.AutoSize = true;
+            this.doorspammerCheckBox.Location = new System.Drawing.Point(299, 281);
+            this.doorspammerCheckBox.Name = "doorspammerCheckBox";
+            this.doorspammerCheckBox.Size = new System.Drawing.Size(93, 17);
+            this.doorspammerCheckBox.TabIndex = 14;
+            this.doorspammerCheckBox.Text = "DoorSpammer";
+            this.doorspammerCheckBox.UseVisualStyleBackColor = true;
+            this.doorspammerCheckBox.CheckedChanged += new System.EventHandler(this.doorspammerCheckBox_CheckedChanged);
+            // 
+            // blockbotCheckBox
+            // 
+            this.blockbotCheckBox.AutoSize = true;
+            this.blockbotCheckBox.Location = new System.Drawing.Point(299, 325);
+            this.blockbotCheckBox.Name = "blockbotCheckBox";
+            this.blockbotCheckBox.Size = new System.Drawing.Size(69, 17);
+            this.blockbotCheckBox.TabIndex = 15;
+            this.blockbotCheckBox.Text = "BlockBot";
+            this.blockbotCheckBox.UseVisualStyleBackColor = true;
+            this.blockbotCheckBox.CheckedChanged += new System.EventHandler(this.blockbotCheckBox_CheckedChanged);
+            // 
+            // doorspammerButton
+            // 
+            this.doorspammerButton.Location = new System.Drawing.Point(299, 297);
+            this.doorspammerButton.Name = "doorspammerButton";
+            this.doorspammerButton.Size = new System.Drawing.Size(84, 23);
+            this.doorspammerButton.TabIndex = 17;
+            this.doorspammerButton.Text = "button2";
+            this.doorspammerButton.UseVisualStyleBackColor = true;
+            this.doorspammerButton.Click += new System.EventHandler(this.doorspammerButton_Click);
+            this.doorspammerButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.doorspammerButton_KeyUp);
+            // 
+            // blockbotButton
+            // 
+            this.blockbotButton.Location = new System.Drawing.Point(299, 341);
+            this.blockbotButton.Name = "blockbotButton";
+            this.blockbotButton.Size = new System.Drawing.Size(84, 23);
+            this.blockbotButton.TabIndex = 18;
+            this.blockbotButton.Text = "button3";
+            this.blockbotButton.UseVisualStyleBackColor = true;
+            this.blockbotButton.Click += new System.EventHandler(this.blockbotButton_Click);
+            this.blockbotButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.blockbotButton_KeyUp);
             // 
             // AnimeForm
             // 
@@ -169,6 +230,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 380);
             this.ControlBox = false;
+            this.Controls.Add(this.blockbotButton);
+            this.Controls.Add(this.doorspammerButton);
+            this.Controls.Add(this.blockbotCheckBox);
+            this.Controls.Add(this.doorspammerCheckBox);
+            this.Controls.Add(this.bhopCheckBox);
             this.Controls.Add(this.kickButton);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.nickBox);
@@ -182,6 +248,7 @@
             this.Name = "AnimeForm";
             this.Text = "AnimeSoftware";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.AnimeForm_Shown);
             this.controlPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).EndInit();
             this.ResumeLayout(false);
@@ -190,7 +257,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -201,6 +267,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Button kickButton;
+        public System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.CheckBox bhopCheckBox;
+        private System.Windows.Forms.CheckBox doorspammerCheckBox;
+        private System.Windows.Forms.CheckBox blockbotCheckBox;
+        private System.Windows.Forms.Button doorspammerButton;
+        private System.Windows.Forms.Button blockbotButton;
     }
 }
 

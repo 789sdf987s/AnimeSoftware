@@ -23,12 +23,11 @@ namespace AnimeSoftware
 
                 Entity target = null;
 
-                while ((DllImport.GetAsyncKeyState(Properties.Hotkey.Default.blockKey) & 0x8000) != 0)
+                while ((DllImport.GetAsyncKeyState(Properties.Hotkey.Default.blockbotKey) & 0x8000) != 0)
                 {
                     if (target == null)
                     {
                         target = Aimbot.BestDistance();
-                        Console.WriteLine("Target clamped.\n");
                     }
 
                     blocking = true;
