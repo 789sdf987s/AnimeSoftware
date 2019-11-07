@@ -108,7 +108,7 @@ namespace AnimeSoftware
         {
 
             List<Entity> entityList = new List<Entity>();
-            for (int i = 0; i < 64; i++)
+            for (int i = 1; i < 64; i++)
             {
                 Entity entity = new Entity(i);
 

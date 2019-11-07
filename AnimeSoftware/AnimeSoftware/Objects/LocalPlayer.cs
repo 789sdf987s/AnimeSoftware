@@ -22,30 +22,45 @@ namespace AnimeSoftware
             }
         }
 
-        public static string Name
+        public static void GetName()
         {
-            get
-            {
+            int radarBasePtr = 0x78;// : 0x54;
+            int radarStructSize = 0x174;// : 0x1E0;
+            int radarStructPos = 0x18;// : 0x24;
 
-                int radarBasePtr = 0x78;// : 0x54;
-                int radarStructSize = 0x174;// : 0x1E0;
-                int radarStructPos = 0x18;// : 0x24;
+            Encoding enc = Encoding.UTF8;// : Encoding.Unicode;
 
-                Encoding enc = Encoding.UTF8;// : Encoding.Unicode;
+            int radarBase = Memory.Read<int>(Memory.Client + signatures.dwRadarBase);
 
-                int radarBase = Memory.Read<int>(Memory.Client + signatures.dwRadarBase);
+            int radarPtr = Memory.Read<int>(radarBase + radarBasePtr);
 
-                int radarPtr = Memory.Read<int>(radarBase + radarBasePtr);
+            int ind = Index + 1;
 
-                int ind = Index + 1;
-
-                var nameAddr = radarPtr + ind * radarStructSize + radarStructPos;
-                return Memory.ReadString(nameAddr, 64, enc);
-
-            }
+            var nameAddr = radarPtr + ind * radarStructSize + radarStructPos;
+            Name = Memory.ReadString(nameAddr, 64, enc);
         }
 
+        public static string Name { get; set; }
+
+
+        public static void GetIndex()
+        {
+            Index = -1;
+            while (Index == -1)
+                foreach (Entity x in Entity.List())
+                {
+                    if (x.Health <= 0)
+                        continue;
+                    if (x.Ptr == Ptr)
+                    {
+                        Index = x.Index;
+                        Console.WriteLine(Index);
+                        break;
+                    }
+                }
+        }
         public static int Index { get; set; }
+        
 
         public static Vector3 Position
         {

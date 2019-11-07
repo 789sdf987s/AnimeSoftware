@@ -14,6 +14,12 @@ namespace AnimeSoftware
 {
     public partial class AnimeForm : Form
     {
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        
+
         public AnimeForm()
         {
             InitializeComponent();
@@ -21,6 +27,7 @@ namespace AnimeSoftware
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             while (!Init())
             {
                 Console.Write("Can't attach process.");
@@ -29,16 +36,13 @@ namespace AnimeSoftware
             Console.WriteLine(String.Format("Succses: pHandle is {0}", Memory.pHandle));
             Console.WriteLine("vstdlib: " + Memory.vstdlib);
             ScannedOffsets.Init();
-            Entity.List();
             Start();
-            
-            Thread.Sleep(100);
+            Checks.ForceUpdate();
             UpdateNickBox();
-            
         }
 
 
-      
+
         public static void Start()
         {
             Thread blockbotThread = new Thread(new ThreadStart(BlockBot.Start))
@@ -62,42 +66,31 @@ namespace AnimeSoftware
             };
             doorspamThread.Start();
 
-            Thread hotkeyThread = new Thread(new ThreadStart(AnimeForm.Hotkey))
+            Thread ChecksThread = new Thread(new ThreadStart(Checks.Start))
             {
                 Priority = ThreadPriority.Highest,
                 IsBackground = true,
             };
-            hotkeyThread.Start();
+            ChecksThread.Start();
         }
 
-        public static void Hotkey()
-        {
-            while (true)
-            {
-                if ((DllImport.GetAsyncKeyState(Properties.Hotkey.Default.defaultNick) & 0x8000) != 0)
-                {
-                    AnimeForm af = new AnimeForm();
-                    NameChanger.Change(af.lpNickTextBox.Text);
-                    Console.WriteLine("Change to " + af.lpNickTextBox.Text);
-                    af.UpdateNickBox();
-                    Thread.Sleep(250);
-                }
-                Thread.Sleep(50);
-            }
-        }
+
+        
         public void UpdateNickBox()
         {
-            nickBox.Items.Clear();
+            nickBox.Rows.Clear();
             if (!LocalPlayer.InGame)
                 return;
-
-            nickBox.Items.Add(LocalPlayer.Name);
-            foreach(Entity x in Entity.List())
+            nickBox.Rows.Add(LocalPlayer.Index, LocalPlayer.Name);
+            foreach (Entity x in Entity.List())
             {
+                Color cellColor;
                 if (!x.isTeam)
-                    continue;
+                    cellColor = Color.Red;
+                else
+                    cellColor = Color.Blue;
 
-                nickBox.Items.Add(x.Name);
+                nickBox.Rows[nickBox.Rows.Add(x.Index, x.Name)].DefaultCellStyle.ForeColor = cellColor;
             }
         }
         public static bool Init()
@@ -116,29 +109,49 @@ namespace AnimeSoftware
             return true;
         }
 
-        private void nickBox_DoubleClick(object sender, EventArgs e)
-        {
-            NameChanger.Change(nickBox.SelectedItem.ToString());
-            UpdateNickBox();
-        }
+
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
             UpdateNickBox();
         }
 
-        private void rlnButton_Click(object sender, EventArgs e)
-        {
-            lpNickTextBox.Text = LocalPlayer.Name;
-            Thread.Sleep(1);
-            UpdateNickBox();
-        }
+
 
         private void changeButton_Click(object sender, EventArgs e)
         {
-            NameChanger.Change(lpNickTextBox.Text);
-            Thread.Sleep(1);
+            ConVarManager.ChangeName(this.nickBox.SelectedRows[0].Cells[1].Value.ToString());
             UpdateNickBox();
+        }
+
+        private void controlPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DllImport.ReleaseCapture();
+                DllImport.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void nickBox_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            nickBox.Rows[e.RowIndex].Selected = true;
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            ConVarManager.ChangeName(LocalPlayer.Name);
+            UpdateNickBox();
+        }
+
+        private void kickButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

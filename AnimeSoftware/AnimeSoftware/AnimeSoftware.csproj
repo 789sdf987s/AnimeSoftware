@@ -49,7 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hacks\NameChanger.cs" />
+    <Compile Include="Checks.cs" />
+    <Compile Include="Hacks\ConVarManager.cs" />
     <Compile Include="Hotkey.cs" />
     <Compile Include="Objects\ConVar.cs" />
     <Compile Include="Hacks\Aimbot.cs" />

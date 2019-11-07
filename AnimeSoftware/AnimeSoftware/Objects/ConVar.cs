@@ -42,7 +42,6 @@ namespace AnimeSoftware
         {
             var hash = GetStringHash(name);
 
-            //IntPtr Pointer = MemoryAPI.ReadFromProcess<IntPtr>(Globals._csgo.ProcessHandle, MemoryAPI.ReadFromProcess<IntPtr>(Globals._csgo.ProcessHandle, pThis + 0x34) + ((byte)hash * 4));
             int CvarEngine = Memory.Read<int>(Memory.vstdlib + signatures.interface_engine_cvar);
             int Pointer = Memory.Read<int>(Memory.Read<int>(CvarEngine + 0x34) + ((byte)hash * 4));
             Encoding enc = Encoding.UTF8;
@@ -56,41 +55,13 @@ namespace AnimeSoftware
                     {
                         return ConVarPointer;
                     }
-
-                    // if (Memory.ReadString(ConVarPointer+0xC,-1,enc))
                 }
-                //Pointer = MemoryAPI.ReadFromProcess<IntPtr>(Globals._csgo.ProcessHandle, Pointer + 0xC);
+
                 Pointer = Memory.Read<int>(Pointer + 0xC);
             }
             return (int)IntPtr.Zero;
         }
-        //public int GetInt()
-        //{
-        //    int xor_value = MemoryAPI.ReadFromProcess<int>(Globals._csgo.ProcessHandle, pThis + 0x30);
 
-        //    xor_value ^= (int)pThis;
-
-        //    return xor_value;
-        //}
-
-        //public bool GetBool()
-        //{
-        //    return GetInt() != 0;
-        //}
-
-        //public float GetFloat()
-        //{
-        //    byte[] xored = MemoryAPI.ReadMemory(Globals._csgo.ProcessHandle, pThis + 0x2C, 4);
-
-        //    byte[] key = BitConverter.GetBytes((int)pThis);
-
-        //    for (int i = 0; i < 4; ++i)
-        //        xored[i] ^= key[i];
-
-        //    float value = BitConverter.ToSingle(xored, 0);
-
-        //    return value;
-        //}
 
     }
 }
