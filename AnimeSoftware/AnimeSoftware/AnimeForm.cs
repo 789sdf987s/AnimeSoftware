@@ -57,7 +57,7 @@ namespace AnimeSoftware
                 Priority = ThreadPriority.Highest,
                 IsBackground = true,
             };
-            //bhopThread.Start();
+            bhopThread.Start();
 
             Thread doorspamThread = new Thread(new ThreadStart(DoorSpam.Start))
             {
