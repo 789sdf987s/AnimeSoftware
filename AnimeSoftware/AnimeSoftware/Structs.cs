@@ -26,13 +26,13 @@ namespace AnimeSoftware
         public int m_nXuidLow;
         public int m_nXuidHigh;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
-        public char[] m_szPlayerName;
+        public byte[] m_szPlayerName;
         public int m_nUserID;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 33)]
         public char[] m_szSteamID;
         public uint m_nSteam3ID;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
-        public char[] m_szFriendsName;
+        public byte[] m_szFriendsName;
         [MarshalAs(UnmanagedType.U1, SizeConst = 1)]
         public bool m_bIsFakePlayer;
         [MarshalAs(UnmanagedType.U1, SizeConst = 1)]

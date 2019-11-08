@@ -79,7 +79,6 @@ namespace AnimeSoftware
             };
             ChecksThread.Start();
 
-            
         }
 
 
@@ -90,16 +89,31 @@ namespace AnimeSoftware
             if (!LocalPlayer.InGame)
                 return;
             nickBox.Rows.Add(LocalPlayer.Index, LocalPlayer.Name);
-            foreach (Entity x in Entity.List())
+            foreach (Entity x in Entity.List().Where(x => x.isTeam))
             {
-                
-                Color cellColor;
-                if (!x.isTeam)
-                    cellColor = Color.Red;
+                Color teamColor = Color.Blue;
+                Color statusColor;
+                if (x.IsDead)
+                    statusColor = Color.Yellow;
                 else
-                    cellColor = Color.Blue;
+                    statusColor = Color.Green;
 
-                nickBox.Rows[nickBox.Rows.Add(x.Index, x.Name)].DefaultCellStyle.ForeColor = cellColor;
+                int ind = nickBox.Rows.Add(x.Index, x.Name, !x.IsDead);
+                nickBox.Rows[ind].Cells[1].Style.ForeColor = teamColor;
+                nickBox.Rows[ind].Cells[2].Style.ForeColor = statusColor;
+            }
+            foreach(Entity x in Entity.List().Where(x => !x.isTeam))
+            {
+                Color teamColor = Color.Red;
+                Color statusColor;
+                if (x.IsDead)
+                    statusColor = Color.Yellow;
+                else
+                    statusColor = Color.Green;
+
+                int ind = nickBox.Rows.Add(x.Index, x.Name, !x.IsDead);
+                nickBox.Rows[ind].Cells[1].Style.ForeColor = teamColor;
+                nickBox.Rows[ind].Cells[2].Style.ForeColor = statusColor;
             }
         }
         public static bool Init()
@@ -126,7 +140,14 @@ namespace AnimeSoftware
 
         private void changeButton_Click(object sender, EventArgs e)
         {
-            ConVarManager.ChangeName(this.nickBox.SelectedRows[0].Cells[1].Value.ToString());
+            try
+            {
+                ConVarManager.ChangeName(this.nickBox.SelectedRows[0].Cells[1].Value.ToString());
+            }
+            catch
+            {
+                ConVarManager.ChangeName(this.nickBox.SelectedCells[0].Value.ToString());
+            }
             UpdateNickBox();
         }
 

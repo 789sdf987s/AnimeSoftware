@@ -31,5 +31,7 @@ namespace AnimeSoftware
             LocalPlayer.GetIndex();
             LocalPlayer.GetName();
         }
+
+        
     }
 }

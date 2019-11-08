@@ -35,8 +35,6 @@
             this.controlPanel = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Button();
             this.nickBox = new System.Windows.Forms.DataGridView();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resetButton = new System.Windows.Forms.Button();
             this.kickButton = new System.Windows.Forms.Button();
             this.bhopCheckBox = new System.Windows.Forms.CheckBox();
@@ -45,13 +43,16 @@
             this.doorspammerButton = new System.Windows.Forms.Button();
             this.blockbotButton = new System.Windows.Forms.Button();
             this.fullrefreshButton = new System.Windows.Forms.Button();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
             this.SuspendLayout();
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(389, 64);
+            this.refreshButton.Location = new System.Drawing.Point(414, 63);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(75, 25);
             this.refreshButton.TabIndex = 2;
@@ -61,7 +62,7 @@
             // 
             // changeButton
             // 
-            this.changeButton.Location = new System.Drawing.Point(299, 64);
+            this.changeButton.Location = new System.Drawing.Point(324, 63);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(75, 25);
             this.changeButton.TabIndex = 5;
@@ -74,7 +75,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(438, 251);
+            this.label1.Location = new System.Drawing.Point(463, 250);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 120);
             this.label1.TabIndex = 6;
@@ -86,7 +87,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(442, 131);
+            this.label2.Location = new System.Drawing.Point(467, 130);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 120);
             this.label2.TabIndex = 7;
@@ -99,7 +100,7 @@
             this.controlPanel.Controls.Add(this.closeButton);
             this.controlPanel.Location = new System.Drawing.Point(0, 0);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(481, 45);
+            this.controlPanel.Size = new System.Drawing.Size(509, 45);
             this.controlPanel.TabIndex = 9;
             this.controlPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.controlPanel_MouseDown);
             // 
@@ -108,7 +109,7 @@
             this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.ForeColor = System.Drawing.Color.Black;
-            this.closeButton.Location = new System.Drawing.Point(445, 12);
+            this.closeButton.Location = new System.Drawing.Point(474, 12);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(23, 23);
             this.closeButton.TabIndex = 0;
@@ -124,16 +125,103 @@
             this.nickBox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.nickBox.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
-            this.nameColumn});
+            this.nameColumn,
+            this.statusColumn});
             this.nickBox.GridColor = System.Drawing.Color.Silver;
             this.nickBox.Location = new System.Drawing.Point(12, 51);
             this.nickBox.MultiSelect = false;
             this.nickBox.Name = "nickBox";
             this.nickBox.ReadOnly = true;
             this.nickBox.RowHeadersVisible = false;
-            this.nickBox.Size = new System.Drawing.Size(265, 317);
+            this.nickBox.Size = new System.Drawing.Size(294, 317);
             this.nickBox.TabIndex = 10;
             this.nickBox.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.nickBox_CellClick);
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(324, 124);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(75, 25);
+            this.resetButton.TabIndex = 11;
+            this.resetButton.Text = "Reset name";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // kickButton
+            // 
+            this.kickButton.Enabled = false;
+            this.kickButton.Location = new System.Drawing.Point(324, 94);
+            this.kickButton.Name = "kickButton";
+            this.kickButton.Size = new System.Drawing.Size(75, 25);
+            this.kickButton.TabIndex = 12;
+            this.kickButton.Text = "Vote kick";
+            this.kickButton.UseVisualStyleBackColor = true;
+            this.kickButton.Click += new System.EventHandler(this.kickButton_Click);
+            // 
+            // bhopCheckBox
+            // 
+            this.bhopCheckBox.AutoSize = true;
+            this.bhopCheckBox.Location = new System.Drawing.Point(324, 257);
+            this.bhopCheckBox.Name = "bhopCheckBox";
+            this.bhopCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.bhopCheckBox.TabIndex = 13;
+            this.bhopCheckBox.Text = "BHop";
+            this.bhopCheckBox.UseVisualStyleBackColor = true;
+            this.bhopCheckBox.CheckedChanged += new System.EventHandler(this.bhopCheckBox_CheckedChanged);
+            // 
+            // doorspammerCheckBox
+            // 
+            this.doorspammerCheckBox.AutoSize = true;
+            this.doorspammerCheckBox.Location = new System.Drawing.Point(324, 280);
+            this.doorspammerCheckBox.Name = "doorspammerCheckBox";
+            this.doorspammerCheckBox.Size = new System.Drawing.Size(93, 17);
+            this.doorspammerCheckBox.TabIndex = 14;
+            this.doorspammerCheckBox.Text = "DoorSpammer";
+            this.doorspammerCheckBox.UseVisualStyleBackColor = true;
+            this.doorspammerCheckBox.CheckedChanged += new System.EventHandler(this.doorspammerCheckBox_CheckedChanged);
+            // 
+            // blockbotCheckBox
+            // 
+            this.blockbotCheckBox.AutoSize = true;
+            this.blockbotCheckBox.Location = new System.Drawing.Point(324, 324);
+            this.blockbotCheckBox.Name = "blockbotCheckBox";
+            this.blockbotCheckBox.Size = new System.Drawing.Size(69, 17);
+            this.blockbotCheckBox.TabIndex = 15;
+            this.blockbotCheckBox.Text = "BlockBot";
+            this.blockbotCheckBox.UseVisualStyleBackColor = true;
+            this.blockbotCheckBox.CheckedChanged += new System.EventHandler(this.blockbotCheckBox_CheckedChanged);
+            // 
+            // doorspammerButton
+            // 
+            this.doorspammerButton.Location = new System.Drawing.Point(324, 296);
+            this.doorspammerButton.Name = "doorspammerButton";
+            this.doorspammerButton.Size = new System.Drawing.Size(84, 23);
+            this.doorspammerButton.TabIndex = 17;
+            this.doorspammerButton.Text = "button2";
+            this.doorspammerButton.UseVisualStyleBackColor = true;
+            this.doorspammerButton.Click += new System.EventHandler(this.doorspammerButton_Click);
+            this.doorspammerButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.doorspammerButton_KeyUp);
+            // 
+            // blockbotButton
+            // 
+            this.blockbotButton.Location = new System.Drawing.Point(324, 340);
+            this.blockbotButton.Name = "blockbotButton";
+            this.blockbotButton.Size = new System.Drawing.Size(84, 23);
+            this.blockbotButton.TabIndex = 18;
+            this.blockbotButton.Text = "button3";
+            this.blockbotButton.UseVisualStyleBackColor = true;
+            this.blockbotButton.Click += new System.EventHandler(this.blockbotButton_Click);
+            this.blockbotButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.blockbotButton_KeyUp);
+            // 
+            // fullrefreshButton
+            // 
+            this.fullrefreshButton.Location = new System.Drawing.Point(414, 94);
+            this.fullrefreshButton.Name = "fullrefreshButton";
+            this.fullrefreshButton.Size = new System.Drawing.Size(75, 25);
+            this.fullrefreshButton.TabIndex = 19;
+            this.fullrefreshButton.Text = "Full refresh";
+            this.fullrefreshButton.UseVisualStyleBackColor = true;
+            this.fullrefreshButton.Click += new System.EventHandler(this.fullrefreshButton_Click);
             // 
             // idColumn
             // 
@@ -147,99 +235,19 @@
             this.nameColumn.HeaderText = "Name";
             this.nameColumn.Name = "nameColumn";
             this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 230;
+            this.nameColumn.Width = 160;
             // 
-            // resetButton
+            // statusColumn
             // 
-            this.resetButton.Location = new System.Drawing.Point(299, 125);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(75, 25);
-            this.resetButton.TabIndex = 11;
-            this.resetButton.Text = "Reset name";
-            this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
-            // 
-            // kickButton
-            // 
-            this.kickButton.Enabled = false;
-            this.kickButton.Location = new System.Drawing.Point(299, 95);
-            this.kickButton.Name = "kickButton";
-            this.kickButton.Size = new System.Drawing.Size(75, 25);
-            this.kickButton.TabIndex = 12;
-            this.kickButton.Text = "Vote kick";
-            this.kickButton.UseVisualStyleBackColor = true;
-            this.kickButton.Click += new System.EventHandler(this.kickButton_Click);
-            // 
-            // bhopCheckBox
-            // 
-            this.bhopCheckBox.AutoSize = true;
-            this.bhopCheckBox.Location = new System.Drawing.Point(299, 258);
-            this.bhopCheckBox.Name = "bhopCheckBox";
-            this.bhopCheckBox.Size = new System.Drawing.Size(53, 17);
-            this.bhopCheckBox.TabIndex = 13;
-            this.bhopCheckBox.Text = "BHop";
-            this.bhopCheckBox.UseVisualStyleBackColor = true;
-            this.bhopCheckBox.CheckedChanged += new System.EventHandler(this.bhopCheckBox_CheckedChanged);
-            // 
-            // doorspammerCheckBox
-            // 
-            this.doorspammerCheckBox.AutoSize = true;
-            this.doorspammerCheckBox.Location = new System.Drawing.Point(299, 281);
-            this.doorspammerCheckBox.Name = "doorspammerCheckBox";
-            this.doorspammerCheckBox.Size = new System.Drawing.Size(93, 17);
-            this.doorspammerCheckBox.TabIndex = 14;
-            this.doorspammerCheckBox.Text = "DoorSpammer";
-            this.doorspammerCheckBox.UseVisualStyleBackColor = true;
-            this.doorspammerCheckBox.CheckedChanged += new System.EventHandler(this.doorspammerCheckBox_CheckedChanged);
-            // 
-            // blockbotCheckBox
-            // 
-            this.blockbotCheckBox.AutoSize = true;
-            this.blockbotCheckBox.Location = new System.Drawing.Point(299, 325);
-            this.blockbotCheckBox.Name = "blockbotCheckBox";
-            this.blockbotCheckBox.Size = new System.Drawing.Size(69, 17);
-            this.blockbotCheckBox.TabIndex = 15;
-            this.blockbotCheckBox.Text = "BlockBot";
-            this.blockbotCheckBox.UseVisualStyleBackColor = true;
-            this.blockbotCheckBox.CheckedChanged += new System.EventHandler(this.blockbotCheckBox_CheckedChanged);
-            // 
-            // doorspammerButton
-            // 
-            this.doorspammerButton.Location = new System.Drawing.Point(299, 297);
-            this.doorspammerButton.Name = "doorspammerButton";
-            this.doorspammerButton.Size = new System.Drawing.Size(84, 23);
-            this.doorspammerButton.TabIndex = 17;
-            this.doorspammerButton.Text = "button2";
-            this.doorspammerButton.UseVisualStyleBackColor = true;
-            this.doorspammerButton.Click += new System.EventHandler(this.doorspammerButton_Click);
-            this.doorspammerButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.doorspammerButton_KeyUp);
-            // 
-            // blockbotButton
-            // 
-            this.blockbotButton.Location = new System.Drawing.Point(299, 341);
-            this.blockbotButton.Name = "blockbotButton";
-            this.blockbotButton.Size = new System.Drawing.Size(84, 23);
-            this.blockbotButton.TabIndex = 18;
-            this.blockbotButton.Text = "button3";
-            this.blockbotButton.UseVisualStyleBackColor = true;
-            this.blockbotButton.Click += new System.EventHandler(this.blockbotButton_Click);
-            this.blockbotButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.blockbotButton_KeyUp);
-            // 
-            // fullrefreshButton
-            // 
-            this.fullrefreshButton.Location = new System.Drawing.Point(389, 95);
-            this.fullrefreshButton.Name = "fullrefreshButton";
-            this.fullrefreshButton.Size = new System.Drawing.Size(75, 25);
-            this.fullrefreshButton.TabIndex = 19;
-            this.fullrefreshButton.Text = "Full refresh";
-            this.fullrefreshButton.UseVisualStyleBackColor = true;
-            this.fullrefreshButton.Click += new System.EventHandler(this.fullrefreshButton_Click);
+            this.statusColumn.HeaderText = "Status";
+            this.statusColumn.Name = "statusColumn";
+            this.statusColumn.ReadOnly = true;
             // 
             // AnimeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 380);
+            this.ClientSize = new System.Drawing.Size(509, 380);
             this.ControlBox = false;
             this.Controls.Add(this.fullrefreshButton);
             this.Controls.Add(this.blockbotButton);
@@ -275,8 +283,6 @@
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.DataGridView nickBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Button kickButton;
         public System.Windows.Forms.Button refreshButton;
@@ -286,6 +292,9 @@
         private System.Windows.Forms.Button doorspammerButton;
         private System.Windows.Forms.Button blockbotButton;
         private System.Windows.Forms.Button fullrefreshButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusColumn;
     }
 }
 

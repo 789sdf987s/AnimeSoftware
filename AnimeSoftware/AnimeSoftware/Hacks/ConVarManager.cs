@@ -16,12 +16,18 @@ namespace AnimeSoftware
 
         }
 
-        public static void VoteKick(string id)
+        public static void VoteKick(int id)
         {
             //ConVar vote = new ConVar("vote");
             //vote.ClearCallbacks();
-            ClientCMD.Exec("vote kick \"" + id + " \"");
+            ClientCMD.Exec("callvote kick " + id);
 
+        }
+        public static void InstantChange()
+        {
+            ConVar nick = new ConVar("name");
+            nick.ClearCallbacks();
+            ClientCMD.Exec("name \"\n\xAD\xAD\xAD\"");
         }
     }
 }

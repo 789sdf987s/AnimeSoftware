@@ -24,11 +24,11 @@ namespace AnimeSoftware
 
         public static void GetName()
         {
-            int radarBasePtr = 0x78;// : 0x54;
-            int radarStructSize = 0x174;// : 0x1E0;
-            int radarStructPos = 0x18;// : 0x24;
+            int radarBasePtr = 0x78;
+            int radarStructSize = 0x174;
+            int radarStructPos = 0x18;
 
-            Encoding enc = Encoding.UTF8;// : Encoding.Unicode;
+            Encoding enc = Encoding.UTF8;
 
             int radarBase = Memory.Read<int>(Memory.Client + signatures.dwRadarBase);
 

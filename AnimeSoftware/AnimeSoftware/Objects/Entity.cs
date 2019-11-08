@@ -63,6 +63,28 @@ namespace AnimeSoftware
             }
         }
 
+        public player_info_s pInfo
+        {
+            get
+            {
+                int ClientState = Memory.Read<int>(Memory.Engine + signatures.dwClientState);
+                int pInfo = Memory.Read<int>(ClientState + signatures.dwClientState_PlayerInfo);
+                pInfo = Memory.Read<int>(pInfo + 0x40);
+                pInfo = Memory.Read<int>(pInfo + 0xC);
+                pInfo = Memory.Read<int>(pInfo + 0x28 + (Index - 1) * 0x34);
+                player_info_s info = Memory.Read<player_info_s>(pInfo);
+                return info;
+            }
+        }   
+
+        public bool IsDead
+        {
+            get
+            {
+                return Health <= 0;
+            }
+        }
+
         public float Speed
         {
             get
