@@ -13,7 +13,7 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - Door spammer.
 - ClientCMD class.
 - BHop
-- NickName changer with with separate window. You can select from teammates names and steal it or input yourself.
+- NickName changer with with separate window.
 
 ### TODO
 - Runboost bot.
