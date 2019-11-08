@@ -1,0 +1,9 @@
+D:\AnimeSoftware\AnimeSoftware\bin\Release\AnimeSoftware.exe.config
+D:\AnimeSoftware\AnimeSoftware\bin\Release\AnimeSoftware.exe
+D:\AnimeSoftware\AnimeSoftware\bin\Release\AnimeSoftware.pdb
+D:\AnimeSoftware\AnimeSoftware\obj\Release\AnimeSoftware.csprojAssemblyReference.cache
+D:\AnimeSoftware\AnimeSoftware\obj\Release\AnimeSoftware.AnimeForm.resources
+D:\AnimeSoftware\AnimeSoftware\obj\Release\AnimeSoftware.Properties.Resources.resources
+D:\AnimeSoftware\AnimeSoftware\obj\Release\AnimeSoftware.csproj.GenerateResource.cache
+D:\AnimeSoftware\AnimeSoftware\obj\Release\AnimeSoftware.exe
+D:\AnimeSoftware\AnimeSoftware\obj\Release\AnimeSoftware.pdb
