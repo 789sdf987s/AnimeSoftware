@@ -44,6 +44,7 @@
             this.blockbotCheckBox = new System.Windows.Forms.CheckBox();
             this.doorspammerButton = new System.Windows.Forms.Button();
             this.blockbotButton = new System.Windows.Forms.Button();
+            this.fullrefreshButton = new System.Windows.Forms.Button();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
             this.SuspendLayout();
@@ -224,12 +225,23 @@
             this.blockbotButton.Click += new System.EventHandler(this.blockbotButton_Click);
             this.blockbotButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.blockbotButton_KeyUp);
             // 
+            // fullrefreshButton
+            // 
+            this.fullrefreshButton.Location = new System.Drawing.Point(389, 95);
+            this.fullrefreshButton.Name = "fullrefreshButton";
+            this.fullrefreshButton.Size = new System.Drawing.Size(75, 25);
+            this.fullrefreshButton.TabIndex = 19;
+            this.fullrefreshButton.Text = "Full refresh";
+            this.fullrefreshButton.UseVisualStyleBackColor = true;
+            this.fullrefreshButton.Click += new System.EventHandler(this.fullrefreshButton_Click);
+            // 
             // AnimeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 380);
             this.ControlBox = false;
+            this.Controls.Add(this.fullrefreshButton);
             this.Controls.Add(this.blockbotButton);
             this.Controls.Add(this.doorspammerButton);
             this.Controls.Add(this.blockbotCheckBox);
@@ -273,6 +285,7 @@
         private System.Windows.Forms.CheckBox blockbotCheckBox;
         private System.Windows.Forms.Button doorspammerButton;
         private System.Windows.Forms.Button blockbotButton;
+        private System.Windows.Forms.Button fullrefreshButton;
     }
 }
 

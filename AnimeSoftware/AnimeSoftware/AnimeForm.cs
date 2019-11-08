@@ -224,5 +224,11 @@ namespace AnimeSoftware
             InitHotkey();
             label1.Focus();
         }
+
+        private void fullrefreshButton_Click(object sender, EventArgs e)
+        {
+            Checks.PreLoad();
+            UpdateNickBox();
+        }
     }
 }

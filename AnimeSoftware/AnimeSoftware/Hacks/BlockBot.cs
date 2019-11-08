@@ -15,6 +15,9 @@ namespace AnimeSoftware
         {
             while (true)
             {
+                if (!Properties.Settings.Default.blockbot)
+                    continue;
+
                 if (!LocalPlayer.InGame)
                     continue;
 
