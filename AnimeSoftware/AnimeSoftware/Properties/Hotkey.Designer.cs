@@ -46,5 +46,17 @@ namespace AnimeSoftware.Properties {
                 this["doorspammerKey"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("90")]
+        public int runboostbotKey {
+            get {
+                return ((int)(this["runboostbotKey"]));
+            }
+            set {
+                this["runboostbotKey"] = value;
+            }
+        }
     }
 }

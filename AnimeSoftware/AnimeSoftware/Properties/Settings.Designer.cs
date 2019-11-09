@@ -70,5 +70,17 @@ namespace AnimeSoftware.Properties {
                 this["namestealer"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool runboostbot {
+            get {
+                return ((bool)(this["runboostbot"]));
+            }
+            set {
+                this["runboostbot"] = value;
+            }
+        }
     }
 }

@@ -13,7 +13,9 @@ namespace AnimeSoftware
         {
             while (true)
             {
-                if(!Properties.Settings.Default.bhop)
+                Thread.Sleep(1);
+
+                if (!Properties.Settings.Default.bhop)
                     continue;
                 if (!LocalPlayer.InGame)
                     continue;
@@ -27,7 +29,7 @@ namespace AnimeSoftware
                     if (LocalPlayer.Flags == 257 || LocalPlayer.Flags == 263) 
                         LocalPlayer.Jump();
 
-                Thread.Sleep(1);
+                
             }
         }
     }

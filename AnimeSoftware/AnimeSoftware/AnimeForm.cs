@@ -88,6 +88,13 @@ namespace AnimeSoftware
             };
             checksThread.Start();
 
+            Thread runboostThread = new Thread(new ThreadStart(RunboostBot.Start))
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true,
+            };
+            runboostThread.Start();
+
         }
 
 
@@ -205,11 +212,13 @@ namespace AnimeSoftware
             doorspammerCheckBox.Checked = Properties.Settings.Default.doorspammer;
             blockbotCheckBox.Checked = Properties.Settings.Default.blockbot;
             namestealerCheckBox.Checked = Properties.Settings.Default.namestealer;
+            runboostbotCheckBox.Checked = Properties.Settings.Default.runboostbot;
         }
         public void InitHotkey()
         {
             blockbotButton.Text = ((Keys)Properties.Hotkey.Default.blockbotKey).ToString();
             doorspammerButton.Text = ((Keys)Properties.Hotkey.Default.doorspammerKey).ToString();
+            runboostbotButton.Text = ((Keys)Properties.Hotkey.Default.runboostbotKey).ToString();
         }
 
         private void bhopCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -235,16 +244,23 @@ namespace AnimeSoftware
             Properties.Settings.Default.namestealer = namestealerCheckBox.Checked;
             Properties.Settings.Default.Save();
         }
+        private void runboostbotCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.runboostbot = runboostbotCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
         private void doorspammerButton_Click(object sender, EventArgs e)
         {
             doorspammerButton.Text = "Press key";
         }
-
         private void blockbotButton_Click(object sender, EventArgs e)
         {
             blockbotButton.Text = "Press key";
         }
-
+        private void runboostbotButton_Click(object sender, EventArgs e)
+        {
+            runboostbotButton.Text = "Press key";
+        }
         private void doorspammerButton_KeyUp(object sender, KeyEventArgs e)
         {
             Properties.Hotkey.Default.doorspammerKey = e.KeyValue;
@@ -260,7 +276,13 @@ namespace AnimeSoftware
             InitHotkey();
             label1.Focus();
         }
-
+        private void runboostbotButton_KeyUp(object sender, KeyEventArgs e)
+        {
+            Properties.Hotkey.Default.runboostbotKey = e.KeyValue;
+            Properties.Hotkey.Default.Save();
+            InitHotkey();
+            label1.Focus();
+        }
         private void fullrefreshButton_Click(object sender, EventArgs e)
         {
             Checks.PreLoad();
@@ -271,5 +293,7 @@ namespace AnimeSoftware
         {
             ConVarManager.ChangeName(customnameTextBox.Text);
         }
+
+        
     }
 }

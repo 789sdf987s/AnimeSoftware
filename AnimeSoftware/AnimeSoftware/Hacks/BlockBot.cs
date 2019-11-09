@@ -15,6 +15,8 @@ namespace AnimeSoftware
         {
             while (true)
             {
+                Thread.Sleep(1);
+
                 if (!Properties.Settings.Default.blockbot)
                     continue;
 
@@ -36,41 +38,47 @@ namespace AnimeSoftware
                     blocking = true;
                     float speed = target.Speed;
 
+                    
+
                     Vector3 angle = Aimbot.CalcAngle(LocalPlayer.ViewPosition, target.Position);
                     angle.y -= LocalPlayer.ViewAngle.y;
                     angle = Aimbot.NormalizedAngle(angle);
 
-                    if (speed > 20 || Math.Abs(angle.y) > 15)
+                    if (speed > 10 || Math.Abs(angle.y) > 10)
                     {
                         if (angle.y < 0.0f)
                         {
-                            Memory.Write<int>(Memory.Client + signatures.dwForceLeft, 4);
-                            Memory.Write<int>(Memory.Client + signatures.dwForceRight, 5);
+                            ClientCMD.Exec("-moveleft");
+                            Thread.Sleep(1);
+                            ClientCMD.Exec("+moveright");
                         }
 
                         else if (angle.y > 0.0f)
                         {
-                            Memory.Write<int>(Memory.Client + signatures.dwForceRight, 4);
-                            Memory.Write<int>(Memory.Client + signatures.dwForceLeft, 5);
+                            ClientCMD.Exec("-moveright");
+                            Thread.Sleep(1);
+                            ClientCMD.Exec("+moveleft");
                         }
-                    }
+                }
                     else
-                    {
-                        Memory.Write<int>(Memory.Client + signatures.dwForceLeft, 4);
-                        Memory.Write<int>(Memory.Client + signatures.dwForceRight, 4);
-                    }
+                {
+                    ClientCMD.Exec("-moveright");
+                    Thread.Sleep(1);
+                    ClientCMD.Exec("-moveleft");
+                }
 
 
-                    Thread.Sleep(25);
+                Thread.Sleep(1);
                 }
                 if (blocking == true)
                 {
-                    Memory.Write<int>(Memory.Client + signatures.dwForceLeft, 4);
-                    Memory.Write<int>(Memory.Client + signatures.dwForceRight, 4);
+                    ClientCMD.Exec("-moveright");
+                    Thread.Sleep(1);
+                    ClientCMD.Exec("-moveleft");
                     blocking = false;
                 }
 
-                Thread.Sleep(1);
+                
             }
         }
     }

@@ -102,6 +102,16 @@ namespace AnimeSoftware
                 return position;
             }
         }
+
+        public Vector3 ViewPosition
+        {
+            get
+            {
+                Vector3 position = Position;
+                position.z += Memory.Read<float>(Ptr + netvars.m_vecViewOffset + 0x8);
+                return position;
+            }
+        }
         public int Health
         {
             get

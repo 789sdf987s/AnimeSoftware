@@ -13,6 +13,8 @@ namespace AnimeSoftware
         {
             while (true)
             {
+                Thread.Sleep(50);
+
                 if (!Properties.Settings.Default.doorspammer)
                     continue;
                 if (!LocalPlayer.InGame)
@@ -28,7 +30,6 @@ namespace AnimeSoftware
                     Thread.Sleep(15);
                 }
                 
-                Thread.Sleep(50);
             }
         }
     }
