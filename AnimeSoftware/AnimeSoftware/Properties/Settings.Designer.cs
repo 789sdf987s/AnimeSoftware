@@ -58,5 +58,17 @@ namespace AnimeSoftware.Properties {
                 this["blockbot"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool namestealer {
+            get {
+                return ((bool)(this["namestealer"]));
+            }
+            set {
+                this["namestealer"] = value;
+            }
+        }
     }
 }

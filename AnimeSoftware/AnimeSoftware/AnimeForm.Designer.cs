@@ -45,7 +45,10 @@
             this.fullrefreshButton = new System.Windows.Forms.Button();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aliveColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namestealerCheckBox = new System.Windows.Forms.CheckBox();
+            this.customnameTextBox = new System.Windows.Forms.TextBox();
+            this.setupButton = new System.Windows.Forms.Button();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(463, 250);
+            this.label1.Location = new System.Drawing.Point(463, 272);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 120);
             this.label1.TabIndex = 6;
@@ -87,7 +90,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(467, 130);
+            this.label2.Location = new System.Drawing.Point(467, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 120);
             this.label2.TabIndex = 7;
@@ -126,7 +129,7 @@
             this.nickBox.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
             this.nameColumn,
-            this.statusColumn});
+            this.aliveColumn});
             this.nickBox.GridColor = System.Drawing.Color.Silver;
             this.nickBox.Location = new System.Drawing.Point(12, 51);
             this.nickBox.MultiSelect = false;
@@ -161,7 +164,7 @@
             // bhopCheckBox
             // 
             this.bhopCheckBox.AutoSize = true;
-            this.bhopCheckBox.Location = new System.Drawing.Point(324, 257);
+            this.bhopCheckBox.Location = new System.Drawing.Point(324, 289);
             this.bhopCheckBox.Name = "bhopCheckBox";
             this.bhopCheckBox.Size = new System.Drawing.Size(53, 17);
             this.bhopCheckBox.TabIndex = 13;
@@ -172,7 +175,7 @@
             // doorspammerCheckBox
             // 
             this.doorspammerCheckBox.AutoSize = true;
-            this.doorspammerCheckBox.Location = new System.Drawing.Point(324, 280);
+            this.doorspammerCheckBox.Location = new System.Drawing.Point(324, 312);
             this.doorspammerCheckBox.Name = "doorspammerCheckBox";
             this.doorspammerCheckBox.Size = new System.Drawing.Size(93, 17);
             this.doorspammerCheckBox.TabIndex = 14;
@@ -183,7 +186,7 @@
             // blockbotCheckBox
             // 
             this.blockbotCheckBox.AutoSize = true;
-            this.blockbotCheckBox.Location = new System.Drawing.Point(324, 324);
+            this.blockbotCheckBox.Location = new System.Drawing.Point(324, 356);
             this.blockbotCheckBox.Name = "blockbotCheckBox";
             this.blockbotCheckBox.Size = new System.Drawing.Size(69, 17);
             this.blockbotCheckBox.TabIndex = 15;
@@ -193,7 +196,7 @@
             // 
             // doorspammerButton
             // 
-            this.doorspammerButton.Location = new System.Drawing.Point(324, 296);
+            this.doorspammerButton.Location = new System.Drawing.Point(324, 328);
             this.doorspammerButton.Name = "doorspammerButton";
             this.doorspammerButton.Size = new System.Drawing.Size(84, 23);
             this.doorspammerButton.TabIndex = 17;
@@ -204,7 +207,7 @@
             // 
             // blockbotButton
             // 
-            this.blockbotButton.Location = new System.Drawing.Point(324, 340);
+            this.blockbotButton.Location = new System.Drawing.Point(324, 372);
             this.blockbotButton.Name = "blockbotButton";
             this.blockbotButton.Size = new System.Drawing.Size(84, 23);
             this.blockbotButton.TabIndex = 18;
@@ -237,18 +240,50 @@
             this.nameColumn.ReadOnly = true;
             this.nameColumn.Width = 160;
             // 
-            // statusColumn
+            // aliveColumn
             // 
-            this.statusColumn.HeaderText = "Status";
-            this.statusColumn.Name = "statusColumn";
-            this.statusColumn.ReadOnly = true;
+            this.aliveColumn.HeaderText = "Alive";
+            this.aliveColumn.Name = "aliveColumn";
+            this.aliveColumn.ReadOnly = true;
+            // 
+            // namestealerCheckBox
+            // 
+            this.namestealerCheckBox.AutoSize = true;
+            this.namestealerCheckBox.Location = new System.Drawing.Point(324, 266);
+            this.namestealerCheckBox.Name = "namestealerCheckBox";
+            this.namestealerCheckBox.Size = new System.Drawing.Size(87, 17);
+            this.namestealerCheckBox.TabIndex = 20;
+            this.namestealerCheckBox.Text = "NameStealer";
+            this.namestealerCheckBox.UseVisualStyleBackColor = true;
+            this.namestealerCheckBox.CheckedChanged += new System.EventHandler(this.namestealerCheckBox_CheckedChanged);
+            // 
+            // customnameTextBox
+            // 
+            this.customnameTextBox.Location = new System.Drawing.Point(12, 374);
+            this.customnameTextBox.Name = "customnameTextBox";
+            this.customnameTextBox.Size = new System.Drawing.Size(236, 20);
+            this.customnameTextBox.TabIndex = 21;
+            this.customnameTextBox.Text = "Custom name";
+            // 
+            // setupButton
+            // 
+            this.setupButton.Location = new System.Drawing.Point(254, 373);
+            this.setupButton.Name = "setupButton";
+            this.setupButton.Size = new System.Drawing.Size(52, 23);
+            this.setupButton.TabIndex = 22;
+            this.setupButton.Text = "Set";
+            this.setupButton.UseVisualStyleBackColor = true;
+            this.setupButton.Click += new System.EventHandler(this.setupButton_Click);
             // 
             // AnimeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 380);
+            this.ClientSize = new System.Drawing.Size(509, 399);
             this.ControlBox = false;
+            this.Controls.Add(this.setupButton);
+            this.Controls.Add(this.customnameTextBox);
+            this.Controls.Add(this.namestealerCheckBox);
             this.Controls.Add(this.fullrefreshButton);
             this.Controls.Add(this.blockbotButton);
             this.Controls.Add(this.doorspammerButton);
@@ -294,7 +329,10 @@
         private System.Windows.Forms.Button fullrefreshButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aliveColumn;
+        private System.Windows.Forms.CheckBox namestealerCheckBox;
+        private System.Windows.Forms.TextBox customnameTextBox;
+        private System.Windows.Forms.Button setupButton;
     }
 }
 

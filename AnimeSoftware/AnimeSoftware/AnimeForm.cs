@@ -43,6 +43,8 @@ namespace AnimeSoftware
                 Thread.Sleep(100);
             }
             ScannedOffsets.Init();
+            Properties.Settings.Default.namestealer = false;
+            Properties.Settings.Default.Save();
             Start();
             
         }
@@ -72,12 +74,19 @@ namespace AnimeSoftware
             };
             doorspamThread.Start();
 
-            Thread ChecksThread = new Thread(new ThreadStart(Checks.Start))
+            Thread namestealerThread = new Thread(new ThreadStart(NameStealer.Start))
             {
                 Priority = ThreadPriority.Highest,
                 IsBackground = true,
             };
-            ChecksThread.Start();
+            namestealerThread.Start();
+
+            Thread checksThread = new Thread(new ThreadStart(Checks.Start))
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true,
+            };
+            checksThread.Start();
 
         }
 
@@ -94,26 +103,26 @@ namespace AnimeSoftware
                 Color teamColor = Color.Blue;
                 Color statusColor;
                 if (x.IsDead)
-                    statusColor = Color.Yellow;
+                    statusColor = Color.YellowGreen;
                 else
                     statusColor = Color.Green;
 
                 int ind = nickBox.Rows.Add(x.Index, x.Name, !x.IsDead);
-                nickBox.Rows[ind].Cells[1].Style.ForeColor = teamColor;
-                nickBox.Rows[ind].Cells[2].Style.ForeColor = statusColor;
+                nickBox.Rows[ind].Cells["nameColumn"].Style.ForeColor = teamColor;
+                nickBox.Rows[ind].Cells["aliveColumn"].Style.ForeColor = statusColor;
             }
             foreach(Entity x in Entity.List().Where(x => !x.isTeam))
             {
                 Color teamColor = Color.Red;
                 Color statusColor;
                 if (x.IsDead)
-                    statusColor = Color.Yellow;
+                    statusColor = Color.YellowGreen;
                 else
                     statusColor = Color.Green;
 
                 int ind = nickBox.Rows.Add(x.Index, x.Name, !x.IsDead);
-                nickBox.Rows[ind].Cells[1].Style.ForeColor = teamColor;
-                nickBox.Rows[ind].Cells[2].Style.ForeColor = statusColor;
+                nickBox.Rows[ind].Cells["nameColumn"].Style.ForeColor = teamColor;
+                nickBox.Rows[ind].Cells["aliveColumn"].Style.ForeColor = statusColor;
             }
         }
         public static bool Init()
@@ -195,6 +204,7 @@ namespace AnimeSoftware
             bhopCheckBox.Checked = Properties.Settings.Default.bhop;
             doorspammerCheckBox.Checked = Properties.Settings.Default.doorspammer;
             blockbotCheckBox.Checked = Properties.Settings.Default.blockbot;
+            namestealerCheckBox.Checked = Properties.Settings.Default.namestealer;
         }
         public void InitHotkey()
         {
@@ -220,6 +230,11 @@ namespace AnimeSoftware
             Properties.Settings.Default.Save();
         }
 
+        private void namestealerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.namestealer = namestealerCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
         private void doorspammerButton_Click(object sender, EventArgs e)
         {
             doorspammerButton.Text = "Press key";
@@ -250,6 +265,11 @@ namespace AnimeSoftware
         {
             Checks.PreLoad();
             UpdateNickBox();
+        }
+
+        private void setupButton_Click(object sender, EventArgs e)
+        {
+            ConVarManager.ChangeName(customnameTextBox.Text);
         }
     }
 }
