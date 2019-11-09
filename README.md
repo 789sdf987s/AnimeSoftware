@@ -15,9 +15,10 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - BHop
 - NickName changer with with separate window.
 - NameStealer (don't use without removing the cooldown through the internal hack)
+- RunboostBot (looks very unlegit, but ~work)
 
 ### Screenshots
-[![Main](https://ibb.co/dM0hy90 "Main")](https://ibb.co/dM0hy90 "Main")
+[![Main](https://ibb.co/Q8bmK95 "Main")](https://ibb.co/Q8bmK95 "Main")
 
 ### TODO
 - Runboost bot.
