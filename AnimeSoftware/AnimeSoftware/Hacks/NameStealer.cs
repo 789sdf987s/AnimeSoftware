@@ -13,7 +13,11 @@ namespace AnimeSoftware
         {
             while (true)
             {
-                
+                Thread.Sleep(25);
+
+                if (!LocalPlayer.InGame)
+                    continue;
+
                 while (Properties.Settings.Default.namestealer)
                 {
                     foreach(Entity x in Entity.List())
@@ -23,7 +27,7 @@ namespace AnimeSoftware
                     }
                 }
 
-                Thread.Sleep(250);
+                
             }
         }
 
