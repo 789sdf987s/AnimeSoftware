@@ -13,7 +13,7 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - Door spammer.
 - ClientCMD class.
 - BHop
-- NickName changer with with separate window.
+- NickName changer with separate window.
 - NameStealer (don't use without removing the cooldown through the internal hack)
 - RunboostBot (looks very unlegit, but ~work)
 
