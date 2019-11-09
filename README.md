@@ -14,6 +14,10 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - ClientCMD class.
 - BHop
 - NickName changer with with separate window.
+- NameStealer (don't use without removing the cooldown through the internal hack)
+
+### Screenshots
+[![Main](https://ibb.co/dM0hy90 "Main")](https://ibb.co/dM0hy90 "Main")
 
 ### TODO
 - Runboost bot.
