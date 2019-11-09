@@ -21,6 +21,5 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 [![Main](https://ibb.co/Q8bmK95 "Main")](https://ibb.co/Q8bmK95 "Main")
 
 ### TODO
-- Runboost bot.
 - ClanTag changer.
 - UserCMD class.
