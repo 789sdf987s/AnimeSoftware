@@ -15,7 +15,7 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - BHop
 - NickName changer with separate window.
 - NameStealer (don't use without removing the cooldown through the internal hack)
-- RunboostBot (looks very unlegit, but ~work)
+- RunboostBot (looks very unlegit, but ~work. Needed to block seated players or just walk on their head.)
 
 ### Screenshots
 [![Main](https://ibb.co/Q8bmK95 "Main")](https://ibb.co/Q8bmK95 "Main")
