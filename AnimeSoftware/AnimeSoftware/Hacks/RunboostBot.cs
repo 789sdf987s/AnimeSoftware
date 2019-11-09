@@ -30,6 +30,11 @@ namespace AnimeSoftware
 
                 while ((DllImport.GetAsyncKeyState(Properties.Hotkey.Default.runboostbotKey) & 0x8000) != 0)
                 {
+                    Thread.Sleep(1);
+
+                    if (LocalPlayer.Flags == 256)
+                        continue;
+
                     if (target == null)
                     {
                         target = Aimbot.BestDistance();
@@ -45,10 +50,10 @@ namespace AnimeSoftware
                     }
                     else
                     {
-                        LocalPlayer.ViewAngleY = Aimbot.CalcAngle(LocalPlayer.ViewPosition, position).y;
+                        LocalPlayer.ViewAngleY = Aimbot.NormalizedAngle(Aimbot.CalcAngle(LocalPlayer.ViewPosition, position)).y;
                         ClientCMD.Exec("+forward");
                     }
-                    Thread.Sleep(1);
+                    
                 }
 
                 if (boosting)
