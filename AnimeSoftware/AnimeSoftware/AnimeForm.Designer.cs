@@ -35,6 +35,9 @@
             this.controlPanel = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Button();
             this.nickBox = new System.Windows.Forms.DataGridView();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aliveColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resetButton = new System.Windows.Forms.Button();
             this.kickButton = new System.Windows.Forms.Button();
             this.bhopCheckBox = new System.Windows.Forms.CheckBox();
@@ -43,14 +46,13 @@
             this.doorspammerButton = new System.Windows.Forms.Button();
             this.blockbotButton = new System.Windows.Forms.Button();
             this.fullrefreshButton = new System.Windows.Forms.Button();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aliveColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namestealerCheckBox = new System.Windows.Forms.CheckBox();
             this.customnameTextBox = new System.Windows.Forms.TextBox();
             this.setupButton = new System.Windows.Forms.Button();
             this.runboostbotCheckBox = new System.Windows.Forms.CheckBox();
             this.runboostbotButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.autostrafeCheckBox = new System.Windows.Forms.CheckBox();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
             this.SuspendLayout();
@@ -142,6 +144,26 @@
             this.nickBox.TabIndex = 10;
             this.nickBox.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.nickBox_CellClick);
             // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "Id";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Width = 30;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 160;
+            // 
+            // aliveColumn
+            // 
+            this.aliveColumn.HeaderText = "Alive";
+            this.aliveColumn.Name = "aliveColumn";
+            this.aliveColumn.ReadOnly = true;
+            // 
             // resetButton
             // 
             this.resetButton.Location = new System.Drawing.Point(324, 124);
@@ -166,7 +188,7 @@
             // bhopCheckBox
             // 
             this.bhopCheckBox.AutoSize = true;
-            this.bhopCheckBox.Location = new System.Drawing.Point(324, 235);
+            this.bhopCheckBox.Location = new System.Drawing.Point(324, 212);
             this.bhopCheckBox.Name = "bhopCheckBox";
             this.bhopCheckBox.Size = new System.Drawing.Size(53, 17);
             this.bhopCheckBox.TabIndex = 13;
@@ -228,30 +250,10 @@
             this.fullrefreshButton.UseVisualStyleBackColor = true;
             this.fullrefreshButton.Click += new System.EventHandler(this.fullrefreshButton_Click);
             // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "Id";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            this.idColumn.Width = 30;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 160;
-            // 
-            // aliveColumn
-            // 
-            this.aliveColumn.HeaderText = "Alive";
-            this.aliveColumn.Name = "aliveColumn";
-            this.aliveColumn.ReadOnly = true;
-            // 
             // namestealerCheckBox
             // 
             this.namestealerCheckBox.AutoSize = true;
-            this.namestealerCheckBox.Location = new System.Drawing.Point(324, 212);
+            this.namestealerCheckBox.Location = new System.Drawing.Point(324, 189);
             this.namestealerCheckBox.Name = "namestealerCheckBox";
             this.namestealerCheckBox.Size = new System.Drawing.Size(87, 17);
             this.namestealerCheckBox.TabIndex = 20;
@@ -299,12 +301,35 @@
             this.runboostbotButton.Click += new System.EventHandler(this.runboostbotButton_Click);
             this.runboostbotButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.runboostbotButton_KeyUp);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(414, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // autostrafeCheckBox
+            // 
+            this.autostrafeCheckBox.AutoSize = true;
+            this.autostrafeCheckBox.Location = new System.Drawing.Point(324, 235);
+            this.autostrafeCheckBox.Name = "autostrafeCheckBox";
+            this.autostrafeCheckBox.Size = new System.Drawing.Size(76, 17);
+            this.autostrafeCheckBox.TabIndex = 26;
+            this.autostrafeCheckBox.Text = "AutoStrafe";
+            this.autostrafeCheckBox.UseVisualStyleBackColor = true;
+            this.autostrafeCheckBox.CheckedChanged += new System.EventHandler(this.autostrafeCheckBox_CheckedChanged);
+            // 
             // AnimeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 399);
             this.ControlBox = false;
+            this.Controls.Add(this.autostrafeCheckBox);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.runboostbotButton);
             this.Controls.Add(this.runboostbotCheckBox);
             this.Controls.Add(this.setupButton);
@@ -361,6 +386,8 @@
         private System.Windows.Forms.Button setupButton;
         private System.Windows.Forms.CheckBox runboostbotCheckBox;
         private System.Windows.Forms.Button runboostbotButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox autostrafeCheckBox;
     }
 }
 

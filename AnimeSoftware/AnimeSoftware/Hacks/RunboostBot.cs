@@ -46,19 +46,19 @@ namespace AnimeSoftware
 
                     if (target.Speed <= 0)
                     {
-                        ClientCMD.Exec("-forward");
+                        LocalPlayer.MoveClearX();
                     }
                     else
                     {
                         LocalPlayer.ViewAngleY = Aimbot.NormalizedAngle(Aimbot.CalcAngle(LocalPlayer.ViewPosition, position)).y;
-                        ClientCMD.Exec("+forward");
+                        LocalPlayer.MoveForward();
                     }
                     
                 }
 
                 if (boosting)
                 {
-                    ClientCMD.Exec("-forward");
+                    LocalPlayer.MoveClearX();
                     boosting = false;
                 }
 

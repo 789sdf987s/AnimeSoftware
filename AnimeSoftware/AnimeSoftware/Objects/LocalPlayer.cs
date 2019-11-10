@@ -77,6 +77,32 @@ namespace AnimeSoftware
                 return velocity;
             }
         }
+        public static void MoveRight()
+        {
+            ClientCMD.Exec("-moveleft");
+            Thread.Sleep(1);
+            ClientCMD.Exec("+moveright");
+        }
+        public static void MoveLeft()
+        {
+            ClientCMD.Exec("-moveright");
+            Thread.Sleep(1);
+            ClientCMD.Exec("+moveleft");
+        }
+        public static void MoveClearY()
+        {
+            ClientCMD.Exec("-moveright");
+            Thread.Sleep(1);
+            ClientCMD.Exec("-moveleft");
+        }
+        public static void MoveForward()
+        {
+            ClientCMD.Exec("+forward");
+        }
+        public static void MoveClearX()
+        {
+            ClientCMD.Exec("-forward");
+        }
 
         public static void Jump()
         {

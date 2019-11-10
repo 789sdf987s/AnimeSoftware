@@ -213,6 +213,8 @@ namespace AnimeSoftware
             blockbotCheckBox.Checked = Properties.Settings.Default.blockbot;
             namestealerCheckBox.Checked = Properties.Settings.Default.namestealer;
             runboostbotCheckBox.Checked = Properties.Settings.Default.runboostbot;
+            autostrafeCheckBox.Checked = Properties.Settings.Default.autostrafe;
+            autostrafeCheckBox.Enabled = bhopCheckBox.Checked;
         }
         public void InitHotkey()
         {
@@ -225,6 +227,8 @@ namespace AnimeSoftware
         {
             Properties.Settings.Default.bhop = bhopCheckBox.Checked;
             Properties.Settings.Default.Save();
+
+            autostrafeCheckBox.Enabled = bhopCheckBox.Checked;
         }
 
         private void doorspammerCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -247,6 +251,11 @@ namespace AnimeSoftware
         private void runboostbotCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.runboostbot = runboostbotCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
+        private void autostrafeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.autostrafe = autostrafeCheckBox.Checked;
             Properties.Settings.Default.Save();
         }
         private void doorspammerButton_Click(object sender, EventArgs e)
@@ -292,6 +301,11 @@ namespace AnimeSoftware
         private void setupButton_Click(object sender, EventArgs e)
         {
             ConVarManager.ChangeName(customnameTextBox.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Memory.Write<int>(Memory.Client + signatures.dwForceLeft,6);
         }
 
         

@@ -82,5 +82,17 @@ namespace AnimeSoftware.Properties {
                 this["runboostbot"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool autostrafe {
+            get {
+                return ((bool)(this["autostrafe"]));
+            }
+            set {
+                this["autostrafe"] = value;
+            }
+        }
     }
 }

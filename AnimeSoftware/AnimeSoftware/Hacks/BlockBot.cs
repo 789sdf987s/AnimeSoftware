@@ -38,7 +38,7 @@ namespace AnimeSoftware
                     blocking = true;
                     float speed = target.Speed;
 
-                    
+
 
                     Vector3 angle = Aimbot.CalcAngle(LocalPlayer.ViewPosition, target.Position);
                     angle.y -= LocalPlayer.ViewAngle.y;
@@ -48,37 +48,30 @@ namespace AnimeSoftware
                     {
                         if (angle.y < 0.0f)
                         {
-                            ClientCMD.Exec("-moveleft");
-                            Thread.Sleep(1);
-                            ClientCMD.Exec("+moveright");
+                            LocalPlayer.MoveRight();
+
                         }
 
                         else if (angle.y > 0.0f)
                         {
-                            ClientCMD.Exec("-moveright");
-                            Thread.Sleep(1);
-                            ClientCMD.Exec("+moveleft");
+                            LocalPlayer.MoveLeft();
                         }
-                }
+                    }
                     else
-                {
-                    ClientCMD.Exec("-moveright");
+                    {
+                        LocalPlayer.MoveClearY();
+                    }
+
+
                     Thread.Sleep(1);
-                    ClientCMD.Exec("-moveleft");
-                }
-
-
-                Thread.Sleep(1);
                 }
                 if (blocking == true)
                 {
-                    ClientCMD.Exec("-moveright");
-                    Thread.Sleep(1);
-                    ClientCMD.Exec("-moveleft");
+                    LocalPlayer.MoveClearY();
                     blocking = false;
                 }
 
-                
+
             }
         }
     }

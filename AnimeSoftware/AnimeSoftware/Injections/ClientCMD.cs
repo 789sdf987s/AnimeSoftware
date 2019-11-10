@@ -20,8 +20,8 @@ namespace AnimeSoftware
                 if (Address == IntPtr.Zero)
                     return;
             }
-            if (szCmd.Length > 255)
-                szCmd = szCmd.Substring(0, 255);
+            //if (szCmd.Length > 255)
+            //    szCmd = szCmd.Substring(0, 255);
 
             var szCmd_bytes = Encoding.UTF8.GetBytes(szCmd + "\0");
 
