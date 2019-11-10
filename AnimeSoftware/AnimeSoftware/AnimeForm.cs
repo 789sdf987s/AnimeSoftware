@@ -302,12 +302,6 @@ namespace AnimeSoftware
         {
             ConVarManager.ChangeName(customnameTextBox.Text);
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Memory.Write<int>(Memory.Client + signatures.dwForceLeft,6);
-        }
-
         
     }
 }
