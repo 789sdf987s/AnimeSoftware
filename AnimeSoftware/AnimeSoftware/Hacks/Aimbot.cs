@@ -38,6 +38,8 @@ namespace AnimeSoftware
             }
             return new Entity(Index);
         }
+
+
         public static Vector3 NormalizedAngle(Vector3 src)
         {
             while (src.x > 89.0f)
@@ -51,6 +53,12 @@ namespace AnimeSoftware
 
             while (src.y < -180.0f)
                 src.y += 360.0f;
+
+            if (src.y < -180.0f || src.y > 180.0f)
+                src.y = 0.0f;
+
+            if (src.x < -89.0f || src.x > 89.0f)
+                src.x = 0.0f;
 
             return src;
         }
