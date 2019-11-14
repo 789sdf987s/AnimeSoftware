@@ -26,14 +26,25 @@ namespace AnimeSoftware
                 if (LocalPlayer.Health <= 0)
                     continue;
 
+                if (LocalPlayer.Dormant)
+                    continue;
+
                 Entity target = null;
 
                 while ((DllImport.GetAsyncKeyState(Properties.Hotkey.Default.runboostbotKey) & 0x8000) != 0)
                 {
                     Thread.Sleep(1);
 
-                    if (LocalPlayer.Flags == 256)
-                        continue;
+                    //if (!LocalPlayer.InGame)
+                    //    continue;
+
+                    //if (LocalPlayer.Health <= 0)
+                    //    continue;
+
+                   
+
+                    //if (LocalPlayer.Flags == 256)
+                    //    continue;
 
                     if (target == null)
                     {
