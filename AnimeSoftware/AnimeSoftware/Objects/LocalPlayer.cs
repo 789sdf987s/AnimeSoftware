@@ -135,6 +135,14 @@ namespace AnimeSoftware
                 return Memory.Read<int>(ClientState + signatures.dwClientState_State) == 6;
             }
         }
+
+        public static bool Dormant
+        {
+            get
+            {
+                return Memory.Read<bool>(Ptr + signatures.m_bDormant);
+            }
+        }
         public static int Health
         {
             get
@@ -166,6 +174,13 @@ namespace AnimeSoftware
                 int ClientState = Memory.Read<Int32>(Memory.Engine + signatures.dwClientState);
 
                 Memory.Write<Vector3>(ClientState + signatures.dwClientState_ViewAngles, value);
+            }
+        }
+        public static Vector3 LocalViewAngle
+        {
+            set
+            {
+                Memory.Write<Vector3>(Ptr + netvars.m_viewPunchAngle, value);
             }
         }
         public static float ViewAngleY
