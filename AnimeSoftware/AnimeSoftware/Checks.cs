@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AnimeSoftware
 {
@@ -32,6 +34,22 @@ namespace AnimeSoftware
             LocalPlayer.GetName();
         }
 
+        public static void CheckVersion()
+        {
+            string url = "https://raw.githubusercontent.com/sagirilover/AnimeSoftware/master/version"; // only for fix critical bugs
+            using (WebClient client = new WebClient())
+            {
+                string s = client.DownloadString(url);
+                if (version != s.Substring(0, 5))
+                {
+                    DialogResult result = MessageBox.Show("New update: " + s + "\nRedirt to github?", "New version.", MessageBoxButtons.YesNo);
+                    if(result==DialogResult.Yes)
+                        System.Diagnostics.Process.Start("https://github.com/sagirilover/AnimeSoftware");
+                }
+            }
+        }
+
+        public static string version = "v1.50";
         
     }
 }

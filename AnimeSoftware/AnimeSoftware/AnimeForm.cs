@@ -26,7 +26,7 @@ namespace AnimeSoftware
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Checks.CheckVersion();
             while (!Init())
             {
                 DialogResult result = MessageBox.Show("The game is not open.\nAlso make sure that you open the application as administrator.", "Can't attach to process", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
