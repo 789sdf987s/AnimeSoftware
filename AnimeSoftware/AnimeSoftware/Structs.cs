@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
 
 namespace AnimeSoftware
@@ -40,6 +41,43 @@ namespace AnimeSoftware
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         public int[] m_dwCustomFiles;
         public char m_FilesDownloaded;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct GlowSettings
+    {
+        byte renderWhenOccluded;
+        byte renderWhenUnoccluded;
+        byte fullBloomRender;
+
+        public GlowSettings(bool __renderWhenOccluded, bool __renderWhenUnoccluded, bool __fullBloom)
+        {
+            renderWhenOccluded = __renderWhenOccluded == true ? (byte)1 : (byte)0;
+            renderWhenUnoccluded = __renderWhenUnoccluded == true ? (byte)1 : (byte)0;
+            fullBloomRender = __fullBloom == true ? (byte)1 : (byte)0;
+        }
+    }
+
+    public struct GlowColor
+    {
+        float r;
+        float g;
+        float b;
+        float a;
+        public GlowColor(Color color)
+        {
+            r = color.R / 255f;
+            g = color.G / 255f;
+            b = color.B / 255f;
+            a = color.A / 255f;
+        }
+        public GlowColor(float _r,float _g,float _b, float _a)
+        {
+            r = _r;
+            g = _g;
+            b = _b;
+            a = _a;
+        }
     }
     public struct Vector3
     {

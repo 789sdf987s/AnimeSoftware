@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.refreshButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,8 +53,18 @@
             this.runboostbotCheckBox = new System.Windows.Forms.CheckBox();
             this.runboostbotButton = new System.Windows.Forms.Button();
             this.autostrafeCheckBox = new System.Windows.Forms.CheckBox();
+            this.nickBoxContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.stealNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setGlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.greenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeGlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.voteKickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
+            this.nickBoxContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // refreshButton
@@ -72,7 +83,7 @@
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(75, 25);
             this.changeButton.TabIndex = 5;
-            this.changeButton.Text = "Change";
+            this.changeButton.Text = "Steal Name";
             this.changeButton.UseVisualStyleBackColor = true;
             this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
@@ -135,13 +146,14 @@
             this.aliveColumn});
             this.nickBox.GridColor = System.Drawing.Color.Silver;
             this.nickBox.Location = new System.Drawing.Point(12, 51);
-            this.nickBox.MultiSelect = false;
             this.nickBox.Name = "nickBox";
             this.nickBox.ReadOnly = true;
             this.nickBox.RowHeadersVisible = false;
             this.nickBox.Size = new System.Drawing.Size(294, 317);
             this.nickBox.TabIndex = 10;
             this.nickBox.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.nickBox_CellClick);
+            this.nickBox.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.nickBox_CellMouseUp);
+            this.nickBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.nickBox_MouseClick);
             // 
             // idColumn
             // 
@@ -311,6 +323,72 @@
             this.autostrafeCheckBox.UseVisualStyleBackColor = true;
             this.autostrafeCheckBox.CheckedChanged += new System.EventHandler(this.autostrafeCheckBox_CheckedChanged);
             // 
+            // nickBoxContextMenuStrip
+            // 
+            this.nickBoxContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stealNameToolStripMenuItem,
+            this.setGlowToolStripMenuItem,
+            this.removeGlowToolStripMenuItem,
+            this.voteKickToolStripMenuItem});
+            this.nickBoxContextMenuStrip.Name = "nickBoxContextMenuStrip";
+            this.nickBoxContextMenuStrip.Size = new System.Drawing.Size(148, 92);
+            this.nickBoxContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.nickBoxContextMenuStrip_ItemClicked);
+            // 
+            // stealNameToolStripMenuItem
+            // 
+            this.stealNameToolStripMenuItem.Name = "stealNameToolStripMenuItem";
+            this.stealNameToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.stealNameToolStripMenuItem.Text = "Steal Name";
+            // 
+            // setGlowToolStripMenuItem
+            // 
+            this.setGlowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.redToolStripMenuItem,
+            this.blueToolStripMenuItem,
+            this.greenToolStripMenuItem,
+            this.customToolStripMenuItem});
+            this.setGlowToolStripMenuItem.Name = "setGlowToolStripMenuItem";
+            this.setGlowToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.setGlowToolStripMenuItem.Text = "Set Glow";
+            this.setGlowToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.setGlowToolStripMenuItem_DropDownItemClicked_1);
+            // 
+            // redToolStripMenuItem
+            // 
+            this.redToolStripMenuItem.Name = "redToolStripMenuItem";
+            this.redToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.redToolStripMenuItem.Text = "Red";
+            // 
+            // blueToolStripMenuItem
+            // 
+            this.blueToolStripMenuItem.Name = "blueToolStripMenuItem";
+            this.blueToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.blueToolStripMenuItem.Text = "Blue";
+            // 
+            // greenToolStripMenuItem
+            // 
+            this.greenToolStripMenuItem.Name = "greenToolStripMenuItem";
+            this.greenToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.greenToolStripMenuItem.Text = "Green";
+            // 
+            // customToolStripMenuItem
+            // 
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.customToolStripMenuItem.Text = "Custom";
+            // 
+            // removeGlowToolStripMenuItem
+            // 
+            this.removeGlowToolStripMenuItem.Name = "removeGlowToolStripMenuItem";
+            this.removeGlowToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.removeGlowToolStripMenuItem.Text = "Remove Glow";
+            // 
+            // voteKickToolStripMenuItem
+            // 
+            this.voteKickToolStripMenuItem.Enabled = false;
+            this.voteKickToolStripMenuItem.Name = "voteKickToolStripMenuItem";
+            this.voteKickToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.voteKickToolStripMenuItem.Text = "Vote Kick";
+            // 
             // AnimeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,6 +423,7 @@
             this.Shown += new System.EventHandler(this.AnimeForm_Shown);
             this.controlPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).EndInit();
+            this.nickBoxContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,6 +454,15 @@
         private System.Windows.Forms.CheckBox runboostbotCheckBox;
         private System.Windows.Forms.Button runboostbotButton;
         private System.Windows.Forms.CheckBox autostrafeCheckBox;
+        private System.Windows.Forms.ContextMenuStrip nickBoxContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem stealNameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setGlowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem greenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem voteKickToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeGlowToolStripMenuItem;
     }
 }
 

@@ -49,8 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlphaColorDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AlphaColorPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Checks.cs" />
     <Compile Include="Hacks\ConVarManager.cs" />
+    <Compile Include="Hacks\Visuals.cs" />
     <Compile Include="Hacks\NameStealer.cs" />
     <Compile Include="Hacks\RunboostBot.cs" />
     <Compile Include="Hotkey.cs" />

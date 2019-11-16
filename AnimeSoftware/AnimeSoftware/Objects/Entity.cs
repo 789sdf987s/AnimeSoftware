@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 using hazedumper;
 
 namespace AnimeSoftware
@@ -13,7 +14,6 @@ namespace AnimeSoftware
         {
 
         }
-
         public int Index;
         public int Ptr
         {
@@ -46,6 +46,16 @@ namespace AnimeSoftware
             }
         }
 
+        public GlowColor glowColor { get; set; }
+        public GlowSettings glowSettings { get; set; }
+        public bool Glowing { get; set; }
+        public int GlowIndex
+        {
+            get
+            {
+                return Memory.Read<int>(Ptr + netvars.m_iGlowIndex);
+            }
+        }
         public float DistanceToPlayer
         {
             get

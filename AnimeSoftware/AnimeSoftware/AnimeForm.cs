@@ -9,6 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using hazedumper;
+using Opulos;
+using Opulos.Core.UI;
 
 namespace AnimeSoftware
 {
@@ -17,7 +19,6 @@ namespace AnimeSoftware
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-
         public AnimeForm()
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace AnimeSoftware
             Properties.Settings.Default.namestealer = false;
             Properties.Settings.Default.Save();
             Start();
-            
+
         }
 
 
@@ -74,13 +75,6 @@ namespace AnimeSoftware
             };
             doorspamThread.Start();
 
-            Thread namestealerThread = new Thread(new ThreadStart(NameStealer.Start))
-            {
-                Priority = ThreadPriority.Highest,
-                IsBackground = true,
-            };
-            namestealerThread.Start();
-
             Thread checksThread = new Thread(new ThreadStart(Checks.Start))
             {
                 Priority = ThreadPriority.Highest,
@@ -95,10 +89,16 @@ namespace AnimeSoftware
             };
             runboostThread.Start();
 
+            Thread visualsThread = new Thread(new ThreadStart(Visuals.Start))
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true,
+            };
+            visualsThread.Start();
         }
 
 
-        
+
         public void UpdateNickBox()
         {
             nickBox.Rows.Clear();
@@ -118,7 +118,7 @@ namespace AnimeSoftware
                 nickBox.Rows[ind].Cells["nameColumn"].Style.ForeColor = teamColor;
                 nickBox.Rows[ind].Cells["aliveColumn"].Style.ForeColor = statusColor;
             }
-            foreach(Entity x in Entity.List().Where(x => !x.isTeam))
+            foreach (Entity x in Entity.List().Where(x => !x.isTeam))
             {
                 Color teamColor = Color.Red;
                 Color statusColor;
@@ -156,14 +156,10 @@ namespace AnimeSoftware
 
         private void changeButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ConVarManager.ChangeName(this.nickBox.SelectedRows[0].Cells[1].Value.ToString());
-            }
-            catch
-            {
-                ConVarManager.ChangeName(this.nickBox.SelectedCells[0].Value.ToString());
-            }
+            string nick = nickBox.Rows[nickBox.SelectedCells[0].RowIndex].Cells[nickBox.Columns["nameColumn"].Index].Value.ToString();
+
+            ConVarManager.ChangeName(nickBox.Rows[nickBox.SelectedCells[0].RowIndex].Cells[nickBox.Columns["nameColumn"].Index].Value.ToString());
+
             UpdateNickBox();
         }
 
@@ -199,7 +195,7 @@ namespace AnimeSoftware
 
         private void AnimeForm_Shown(object sender, EventArgs e)
         {
-            
+
             UpdateNickBox();
 
             InitCheckBox();
@@ -247,6 +243,13 @@ namespace AnimeSoftware
         {
             Properties.Settings.Default.namestealer = namestealerCheckBox.Checked;
             Properties.Settings.Default.Save();
+            Thread namestealerThread = new Thread(new ThreadStart(NameStealer.Start))
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true,
+            };
+            if (Properties.Settings.Default.namestealer)
+                namestealerThread.Start();
         }
         private void runboostbotCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -302,6 +305,110 @@ namespace AnimeSoftware
         {
             ConVarManager.ChangeName(customnameTextBox.Text);
         }
-        
+
+        private void nickBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!(e.Button == MouseButtons.Right))
+                return;
+
+            int currentMouseOverRow = nickBox.HitTest(e.X, e.Y).RowIndex;
+
+            if (currentMouseOverRow >= 0)
+            {
+                nickBoxContextMenuStrip.Show(Cursor.Position);
+            }
+
+        }
+        private void nickBoxContextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem == stealNameToolStripMenuItem)
+            {
+                changeButton.PerformClick();                // switch doesnt work lol
+                return;
+            }
+            if (e.ClickedItem == removeGlowToolStripMenuItem)
+            {
+                List<Entity> ToGlow = Visuals.ToGlow;
+                List<int> entityIndex = new List<int>();
+                foreach (DataGridViewCell i in nickBox.SelectedCells)
+                {
+                    if (i.ColumnIndex == nickBox.Columns["idColumn"].Index)
+                        entityIndex.Add(Convert.ToInt32(i.Value));
+                }
+                foreach (Entity x in Entity.List())
+                {
+                    if (entityIndex.Contains(x.Index))
+                    {
+                        ToGlow.Remove(ToGlow.Find(j => j.Index == x.Index));
+                    }
+                }
+                Visuals.ToGlow = ToGlow;
+            }
+        }
+        private void toGlowListChange(GlowColor glowColor)
+        {
+            List<Entity> ToGlow = Visuals.ToGlow;
+            List<int> entityIndex = new List<int>();
+            foreach (DataGridViewCell i in nickBox.SelectedCells)
+            {
+                if (i.ColumnIndex == nickBox.Columns["idColumn"].Index)
+                    entityIndex.Add(Convert.ToInt32(i.Value));
+            }
+            foreach (Entity x in Entity.List())
+            {
+                if (entityIndex.Contains(x.Index))
+                {
+                    ToGlow.Remove(ToGlow.Find(j => j.Index == x.Index));
+                    x.Glowing = true;
+                    x.glowColor = glowColor;
+                    x.glowSettings = new GlowSettings(true, false, false);
+                    ToGlow.Add(x);
+                    continue;
+                }
+            }
+            Visuals.ToGlow = ToGlow;
+        }
+
+        private void nickBox_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            foreach (DataGridViewCell x in nickBox.SelectedCells)
+            {
+                nickBox.Rows[x.RowIndex].Selected = true;
+            }
+        }
+
+        private void setGlowToolStripMenuItem_DropDownItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
+        {
+            GlowColor glowColor = new GlowColor();
+            if (e.ClickedItem == redToolStripMenuItem)
+            {
+                glowColor = new GlowColor(Color.Red);
+            }
+            if (e.ClickedItem == greenToolStripMenuItem)
+            {
+                glowColor = new GlowColor(Color.Green);
+            }
+            if (e.ClickedItem == blueToolStripMenuItem)
+            {
+                glowColor = new GlowColor(Color.Blue);
+            }
+            if (e.ClickedItem == customToolStripMenuItem)
+            {
+
+                AlphaColorDialog colorDialog = new AlphaColorDialog()
+                {
+                    FullOpen = true,
+                    Color = Color.Gray,
+                };
+                nickBoxContextMenuStrip.Hide();
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+
+                    glowColor = new GlowColor(colorDialog.Color);
+                }
+            }
+
+            toGlowListChange(glowColor);
+        }
     }
 }

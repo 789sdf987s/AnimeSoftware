@@ -35,17 +35,6 @@ namespace AnimeSoftware
                 {
                     Thread.Sleep(1);
 
-                    //if (!LocalPlayer.InGame)
-                    //    continue;
-
-                    //if (LocalPlayer.Health <= 0)
-                    //    continue;
-
-                   
-
-                    //if (LocalPlayer.Flags == 256)
-                    //    continue;
-
                     if (target == null)
                     {
                         target = Aimbot.BestDistance();
@@ -62,6 +51,7 @@ namespace AnimeSoftware
                     else
                     {
                         LocalPlayer.ViewAngleY = Aimbot.NormalizedAngle(Aimbot.CalcAngle(LocalPlayer.ViewPosition, position)).y;
+
                         LocalPlayer.MoveForward();
                     }
                     

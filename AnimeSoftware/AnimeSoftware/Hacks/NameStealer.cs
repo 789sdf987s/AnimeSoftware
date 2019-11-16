@@ -11,25 +11,24 @@ namespace AnimeSoftware
     {
         public static void Start()
         {
-            while (true)
+
+            if (!LocalPlayer.InGame)
+                return;
+
+            while (Properties.Settings.Default.namestealer)
             {
-                Thread.Sleep(25);
-
-                if (!LocalPlayer.InGame)
-                    continue;
-
-                while (Properties.Settings.Default.namestealer)
+                foreach (Entity x in Entity.List())
                 {
-                    foreach(Entity x in Entity.List())
-                    {
-                        ConVarManager.ChangeName(x.Name);
-                        Thread.Sleep(250);
-                    }
+                    if (!Properties.Settings.Default.namestealer)
+                        break;
+                    ConVarManager.ChangeName(x.Name);
+                    Thread.Sleep(250);
                 }
-
-                
             }
-        }
 
+
+        }
     }
+
+
 }
