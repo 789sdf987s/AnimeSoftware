@@ -21,8 +21,8 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - Targeted Glow by nickname.
 
 ### Screenshots 
-[![Main](https://ibb.co/DWmvNdY "Main")](https://ibb.co/DWmvNdY "Main")
-[![Targeted Glow](https://ibb.co/1T1MjTc "Targeted Glow")](https://ibb.co/1T1MjTc "Targeted Glow")
+[![Main](https://ibb.co/DWmvNdY "Main")](https://ibb.co/DWmvNdY "Main")  
+[![Targeted Glow](https://ibb.co/1T1MjTc "Targeted Glow")](https://ibb.co/1T1MjTc "Targeted Glow")  
 [RunboostBot showcase1](https://youtu.be/mLDMrwj9PPE)  
 [RunboostBot showcase2](https://www.youtube.com/watch?v=x7LKyMxIcCo)  
 
