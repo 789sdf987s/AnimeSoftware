@@ -26,7 +26,8 @@ namespace AnimeSoftware
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Checks.CheckVersion();
+            
+
             while (!Init())
             {
                 DialogResult result = MessageBox.Show("The game is not open.\nAlso make sure that you open the application as administrator.", "Can't attach to process", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
@@ -47,7 +48,7 @@ namespace AnimeSoftware
             Properties.Settings.Default.namestealer = false;
             Properties.Settings.Default.Save();
             Start();
-
+            
         }
 
 
@@ -409,6 +410,11 @@ namespace AnimeSoftware
             }
 
             toGlowListChange(glowColor);
+        }
+
+        private void chckVersion_Click(object sender, EventArgs e)
+        {
+            Checks.CheckVersion();
         }
     }
 }

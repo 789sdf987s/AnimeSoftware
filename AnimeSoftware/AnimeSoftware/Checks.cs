@@ -46,10 +46,14 @@ namespace AnimeSoftware
                     if(result==DialogResult.Yes)
                         System.Diagnostics.Process.Start("https://github.com/sagirilover/AnimeSoftware");
                 }
+                else
+                {
+                    MessageBox.Show("Last version.", "Result.", MessageBoxButtons.OK);
+                }
             }
         }
 
-        public static string version = "v1.50";
+        public static string version = "v1.51";
         
     }
 }
