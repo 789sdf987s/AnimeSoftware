@@ -19,9 +19,10 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - NameStealer (don't use without removing the cooldown through the internal hack)
 - RunboostBot (looks very unlegit, but ~work. Needed to block seated players or just walk on their head.)
 - Targeted Glow by nickname.
+- WeaponSpammer (sound of switching mode on glock/famas; scoping; r8 prepare)
 
 ### Screenshots 
-[![Main](https://ibb.co/DWmvNdY "Main")](https://ibb.co/DWmvNdY "Main")  
+[![Main](https://ibb.co/nkS0xyT "Main")](https://ibb.co/nkS0xyT "Main")  
 [![Targeted Glow](https://ibb.co/1T1MjTc "Targeted Glow")](https://ibb.co/1T1MjTc "Targeted Glow")  
 [RunboostBot showcase1](https://youtu.be/mLDMrwj9PPE)  
 [RunboostBot showcase2](https://www.youtube.com/watch?v=x7LKyMxIcCo)  
