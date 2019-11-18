@@ -135,6 +135,7 @@ namespace AnimeSoftware
         }
         public static bool Init()
         {
+            Checks.CheckVersion();
             if (!Memory.OpenProcess("csgo"))
                 return false;
             Thread.Sleep(100);
@@ -410,11 +411,6 @@ namespace AnimeSoftware
             }
 
             toGlowListChange(glowColor);
-        }
-
-        private void chckVersion_Click(object sender, EventArgs e)
-        {
-            Checks.CheckVersion();
         }
     }
 }

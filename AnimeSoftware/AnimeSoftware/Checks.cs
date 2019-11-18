@@ -42,14 +42,11 @@ namespace AnimeSoftware
                 string s = client.DownloadString(url);
                 if (version != s.Substring(0, 5))
                 {
-                    DialogResult result = MessageBox.Show("New update: " + s + "\nRedirt to github?", "New version.", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show("New update: " + s + "\nRedirect to github?", "New version.", MessageBoxButtons.YesNo);
                     if(result==DialogResult.Yes)
                         System.Diagnostics.Process.Start("https://github.com/sagirilover/AnimeSoftware");
                 }
-                else
-                {
-                    MessageBox.Show("Last version.", "Result.", MessageBoxButtons.OK);
-                }
+            
             }
         }
 

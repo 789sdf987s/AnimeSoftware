@@ -62,7 +62,6 @@
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeGlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voteKickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chckVersion = new System.Windows.Forms.Button();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
             this.nickBoxContextMenuStrip.SuspendLayout();
@@ -115,7 +114,6 @@
             // controlPanel
             // 
             this.controlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.controlPanel.Controls.Add(this.chckVersion);
             this.controlPanel.Controls.Add(this.closeButton);
             this.controlPanel.Location = new System.Drawing.Point(0, 0);
             this.controlPanel.Name = "controlPanel";
@@ -391,18 +389,6 @@
             this.voteKickToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.voteKickToolStripMenuItem.Text = "Vote Kick";
             // 
-            // chckVersion
-            // 
-            this.chckVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.chckVersion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chckVersion.Location = new System.Drawing.Point(381, 12);
-            this.chckVersion.Name = "chckVersion";
-            this.chckVersion.Size = new System.Drawing.Size(87, 23);
-            this.chckVersion.TabIndex = 27;
-            this.chckVersion.Text = "Check update";
-            this.chckVersion.UseVisualStyleBackColor = false;
-            this.chckVersion.Click += new System.EventHandler(this.chckVersion_Click);
-            // 
             // AnimeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,7 +463,6 @@
         private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voteKickToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeGlowToolStripMenuItem;
-        private System.Windows.Forms.Button chckVersion;
     }
 }
 
