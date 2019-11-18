@@ -1,3 +1,2 @@
-v1.50
-added targeted glow by nickname
-fixed localplayer bugs
+v1.51
+removed check version at start
