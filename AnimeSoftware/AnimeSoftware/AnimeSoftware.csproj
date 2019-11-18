@@ -60,6 +60,7 @@
     <Compile Include="Hacks\Visuals.cs" />
     <Compile Include="Hacks\NameStealer.cs" />
     <Compile Include="Hacks\RunboostBot.cs" />
+    <Compile Include="Hacks\WeaponSpammer.cs" />
     <Compile Include="Hotkey.cs" />
     <Compile Include="Objects\ConVar.cs" />
     <Compile Include="Hacks\Aimbot.cs" />

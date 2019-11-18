@@ -29,6 +29,9 @@ namespace AnimeSoftware
 
         public static void PreLoad()
         {
+            if (!LocalPlayer.InGame)
+                return;
+
             Update = true;
             LocalPlayer.GetIndex();
             LocalPlayer.GetName();
@@ -50,7 +53,7 @@ namespace AnimeSoftware
             }
         }
 
-        public static string version = "v1.51";
+        public static string version = "v1.60";
         
     }
 }

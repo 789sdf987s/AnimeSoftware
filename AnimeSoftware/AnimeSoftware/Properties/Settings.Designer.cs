@@ -94,5 +94,17 @@ namespace AnimeSoftware.Properties {
                 this["autostrafe"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool weaponspammer {
+            get {
+                return ((bool)(this["weaponspammer"]));
+            }
+            set {
+                this["weaponspammer"] = value;
+            }
+        }
     }
 }

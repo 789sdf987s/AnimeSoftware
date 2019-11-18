@@ -10,6 +10,7 @@ namespace AnimeSoftware
 {
     class Structs
     {
+        public static readonly int[] SpamWeaponList = new int[]{ 4,9,10,11,38,40,64,262208 };
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -60,10 +61,10 @@ namespace AnimeSoftware
 
     public struct GlowColor
     {
-        float r;
-        float g;
-        float b;
-        float a;
+        public float r;
+        public float g;
+        public float b;
+        public float a;
         public GlowColor(Color color)
         {
             r = color.R / 255f;
@@ -77,6 +78,17 @@ namespace AnimeSoftware
             g = _g;
             b = _b;
             a = _a;
+        }
+        public static Color operator *(GlowColor a, int b)
+        {
+            return Color.FromArgb((int)a.a*b, (int)a.r * b, (int)a.g * b, (int)a.b * b);
+        }
+        public Color ToColor
+        {
+            get
+            {
+                return Color.FromArgb((int)(a*255), (int)(r *255), (int)(g *255), (int)(b *255));
+            }
         }
     }
     public struct Vector3

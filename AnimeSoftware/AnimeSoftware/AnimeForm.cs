@@ -355,6 +355,9 @@ namespace AnimeSoftware
             {
                 if (i.ColumnIndex == nickBox.Columns["idColumn"].Index)
                     entityIndex.Add(Convert.ToInt32(i.Value));
+                if (i.ColumnIndex == nickBox.Columns["glowColumn"].Index)
+                    i.Style.BackColor = glowColor.ToColor;
+
             }
             foreach (Entity x in Entity.List())
             {
@@ -368,6 +371,7 @@ namespace AnimeSoftware
                     continue;
                 }
             }
+            nickBox.ClearSelection();
             Visuals.ToGlow = ToGlow;
         }
 
@@ -405,12 +409,24 @@ namespace AnimeSoftware
                 nickBoxContextMenuStrip.Hide();
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
-
                     glowColor = new GlowColor(colorDialog.Color);
                 }
             }
 
             toGlowListChange(glowColor);
+        }
+
+        private void rightspamButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.weaponspammer = rightspamButton.Checked;
+            Properties.Settings.Default.Save();
+            Thread weaponspammerThread = new Thread(new ThreadStart(WeaponSpammer.Start))
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true,
+            };
+            if (Properties.Settings.Default.weaponspammer)
+                weaponspammerThread.Start();
         }
     }
 }

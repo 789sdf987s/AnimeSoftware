@@ -150,6 +150,14 @@ namespace AnimeSoftware
                 return Memory.Read<int>(Ptr + netvars.m_iHealth);
             }
         }
+        public static int ActiveWeapon
+        {
+            get
+            {
+                int weaponHandle = Memory.Read<int>(Ptr + netvars.m_hActiveWeapon) & 0xFFF;
+                return Memory.Read<int>(Memory.Read<int>(Memory.Client + signatures.dwEntityList + (weaponHandle - 1) * 0x10) + netvars.m_iItemDefinitionIndex);
+            }
+        }
         public static Vector3 ViewPosition
         {
             get
