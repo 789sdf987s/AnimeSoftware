@@ -36,6 +36,10 @@
             this.controlPanel = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Button();
             this.nickBox = new System.Windows.Forms.DataGridView();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aliveColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.glowColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resetButton = new System.Windows.Forms.Button();
             this.bhopCheckBox = new System.Windows.Forms.CheckBox();
             this.doorspammerCheckBox = new System.Windows.Forms.CheckBox();
@@ -58,14 +62,29 @@
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeGlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voteKickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aliveColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.glowColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rightspamButton = new System.Windows.Forms.CheckBox();
+            this.trashControl = new System.Windows.Forms.TabControl();
+            this.aimTab = new System.Windows.Forms.TabPage();
+            this.fovLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.fovTrackBar = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
+            this.hitboxComboBox = new System.Windows.Forms.ComboBox();
+            this.ffCheckBox = new System.Windows.Forms.CheckBox();
+            this.aimbotCheckBox = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.rscCheckBox = new System.Windows.Forms.CheckBox();
+            this.smoothTrackBar = new System.Windows.Forms.TrackBar();
+            this.smoothLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.unlockButton = new System.Windows.Forms.Button();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
             this.nickBoxContextMenuStrip.SuspendLayout();
+            this.trashControl.SuspendLayout();
+            this.aimTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fovTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smoothTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // refreshButton
@@ -94,7 +113,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(76, 0);
+            this.label1.Location = new System.Drawing.Point(78, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 40);
             this.label1.TabIndex = 6;
@@ -107,7 +126,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 40);
             this.label2.TabIndex = 7;
@@ -122,7 +141,7 @@
             this.controlPanel.Controls.Add(this.label1);
             this.controlPanel.Location = new System.Drawing.Point(0, 0);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(486, 45);
+            this.controlPanel.Size = new System.Drawing.Size(632, 45);
             this.controlPanel.TabIndex = 9;
             this.controlPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.controlPanel_MouseDown);
             // 
@@ -131,7 +150,7 @@
             this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.ForeColor = System.Drawing.Color.Black;
-            this.closeButton.Location = new System.Drawing.Point(447, 12);
+            this.closeButton.Location = new System.Drawing.Point(443, 12);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(23, 23);
             this.closeButton.TabIndex = 0;
@@ -160,6 +179,34 @@
             this.nickBox.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.nickBox_CellClick);
             this.nickBox.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.nickBox_CellMouseUp);
             this.nickBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.nickBox_MouseClick);
+            // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "Id";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Width = 30;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 185;
+            // 
+            // aliveColumn
+            // 
+            this.aliveColumn.HeaderText = "Alive";
+            this.aliveColumn.Name = "aliveColumn";
+            this.aliveColumn.ReadOnly = true;
+            this.aliveColumn.Width = 60;
+            // 
+            // glowColumn
+            // 
+            this.glowColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.glowColumn.HeaderText = "Glow";
+            this.glowColumn.Name = "glowColumn";
+            this.glowColumn.ReadOnly = true;
             // 
             // resetButton
             // 
@@ -364,34 +411,6 @@
             this.voteKickToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.voteKickToolStripMenuItem.Text = "Vote Kick";
             // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "Id";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            this.idColumn.Width = 30;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 185;
-            // 
-            // aliveColumn
-            // 
-            this.aliveColumn.HeaderText = "Alive";
-            this.aliveColumn.Name = "aliveColumn";
-            this.aliveColumn.ReadOnly = true;
-            this.aliveColumn.Width = 60;
-            // 
-            // glowColumn
-            // 
-            this.glowColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.glowColumn.HeaderText = "Glow";
-            this.glowColumn.Name = "glowColumn";
-            this.glowColumn.ReadOnly = true;
-            // 
             // rightspamButton
             // 
             this.rightspamButton.AutoSize = true;
@@ -404,12 +423,175 @@
             this.rightspamButton.UseVisualStyleBackColor = true;
             this.rightspamButton.CheckedChanged += new System.EventHandler(this.rightspamButton_CheckedChanged);
             // 
+            // trashControl
+            // 
+            this.trashControl.Controls.Add(this.aimTab);
+            this.trashControl.Location = new System.Drawing.Point(476, 55);
+            this.trashControl.Name = "trashControl";
+            this.trashControl.SelectedIndex = 0;
+            this.trashControl.Size = new System.Drawing.Size(145, 371);
+            this.trashControl.TabIndex = 29;
+            // 
+            // aimTab
+            // 
+            this.aimTab.Controls.Add(this.label5);
+            this.aimTab.Controls.Add(this.smoothLabel);
+            this.aimTab.Controls.Add(this.smoothTrackBar);
+            this.aimTab.Controls.Add(this.rscCheckBox);
+            this.aimTab.Controls.Add(this.fovLabel);
+            this.aimTab.Controls.Add(this.label4);
+            this.aimTab.Controls.Add(this.fovTrackBar);
+            this.aimTab.Controls.Add(this.label3);
+            this.aimTab.Controls.Add(this.hitboxComboBox);
+            this.aimTab.Controls.Add(this.ffCheckBox);
+            this.aimTab.Controls.Add(this.aimbotCheckBox);
+            this.aimTab.Location = new System.Drawing.Point(4, 22);
+            this.aimTab.Name = "aimTab";
+            this.aimTab.Padding = new System.Windows.Forms.Padding(3);
+            this.aimTab.Size = new System.Drawing.Size(137, 345);
+            this.aimTab.TabIndex = 1;
+            this.aimTab.Text = "Aimbot";
+            this.aimTab.UseVisualStyleBackColor = true;
+            // 
+            // fovLabel
+            // 
+            this.fovLabel.Location = new System.Drawing.Point(20, 158);
+            this.fovLabel.Name = "fovLabel";
+            this.fovLabel.Size = new System.Drawing.Size(100, 13);
+            this.fovLabel.TabIndex = 6;
+            this.fovLabel.Text = "0";
+            this.fovLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 114);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "FOV";
+            // 
+            // fovTrackBar
+            // 
+            this.fovTrackBar.AutoSize = false;
+            this.fovTrackBar.BackColor = System.Drawing.Color.White;
+            this.fovTrackBar.Location = new System.Drawing.Point(20, 130);
+            this.fovTrackBar.Maximum = 5000;
+            this.fovTrackBar.Name = "fovTrackBar";
+            this.fovTrackBar.Size = new System.Drawing.Size(100, 27);
+            this.fovTrackBar.TabIndex = 4;
+            this.fovTrackBar.Scroll += new System.EventHandler(this.fovTrackBar_Scroll);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Bone";
+            // 
+            // hitboxComboBox
+            // 
+            this.hitboxComboBox.FormattingEnabled = true;
+            this.hitboxComboBox.Location = new System.Drawing.Point(20, 83);
+            this.hitboxComboBox.Name = "hitboxComboBox";
+            this.hitboxComboBox.Size = new System.Drawing.Size(82, 21);
+            this.hitboxComboBox.TabIndex = 2;
+            this.hitboxComboBox.SelectedIndexChanged += new System.EventHandler(this.hitboxComboBox_SelectedIndexChanged);
+            // 
+            // ffCheckBox
+            // 
+            this.ffCheckBox.AutoSize = true;
+            this.ffCheckBox.Location = new System.Drawing.Point(20, 29);
+            this.ffCheckBox.Name = "ffCheckBox";
+            this.ffCheckBox.Size = new System.Drawing.Size(82, 17);
+            this.ffCheckBox.TabIndex = 1;
+            this.ffCheckBox.Text = "Friendly Fire";
+            this.ffCheckBox.UseVisualStyleBackColor = true;
+            this.ffCheckBox.CheckedChanged += new System.EventHandler(this.ffCheckBox_CheckedChanged);
+            // 
+            // aimbotCheckBox
+            // 
+            this.aimbotCheckBox.AutoSize = true;
+            this.aimbotCheckBox.Location = new System.Drawing.Point(6, 6);
+            this.aimbotCheckBox.Name = "aimbotCheckBox";
+            this.aimbotCheckBox.Size = new System.Drawing.Size(59, 17);
+            this.aimbotCheckBox.TabIndex = 0;
+            this.aimbotCheckBox.Text = "Enable";
+            this.aimbotCheckBox.UseVisualStyleBackColor = true;
+            this.aimbotCheckBox.CheckedChanged += new System.EventHandler(this.aimbotCheckBox_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(367, 219);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // rscCheckBox
+            // 
+            this.rscCheckBox.AutoSize = true;
+            this.rscCheckBox.Location = new System.Drawing.Point(20, 47);
+            this.rscCheckBox.Name = "rscCheckBox";
+            this.rscCheckBox.Size = new System.Drawing.Size(48, 17);
+            this.rscCheckBox.TabIndex = 7;
+            this.rscCheckBox.Text = "RSC";
+            this.rscCheckBox.UseVisualStyleBackColor = true;
+            this.rscCheckBox.CheckedChanged += new System.EventHandler(this.rscCheckBox_CheckedChanged);
+            // 
+            // smoothTrackBar
+            // 
+            this.smoothTrackBar.AutoSize = false;
+            this.smoothTrackBar.BackColor = System.Drawing.Color.White;
+            this.smoothTrackBar.Location = new System.Drawing.Point(20, 196);
+            this.smoothTrackBar.Maximum = 10000;
+            this.smoothTrackBar.Minimum = 1;
+            this.smoothTrackBar.Name = "smoothTrackBar";
+            this.smoothTrackBar.Size = new System.Drawing.Size(100, 27);
+            this.smoothTrackBar.TabIndex = 8;
+            this.smoothTrackBar.Value = 1;
+            this.smoothTrackBar.Scroll += new System.EventHandler(this.smoothTrackBar_Scroll);
+            // 
+            // smoothLabel
+            // 
+            this.smoothLabel.Location = new System.Drawing.Point(20, 222);
+            this.smoothLabel.Name = "smoothLabel";
+            this.smoothLabel.Size = new System.Drawing.Size(100, 17);
+            this.smoothLabel.TabIndex = 9;
+            this.smoothLabel.Text = "0";
+            this.smoothLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 180);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Speed";
+            // 
+            // unlockButton
+            // 
+            this.unlockButton.Location = new System.Drawing.Point(464, 419);
+            this.unlockButton.Name = "unlockButton";
+            this.unlockButton.Size = new System.Drawing.Size(10, 10);
+            this.unlockButton.TabIndex = 31;
+            this.unlockButton.UseVisualStyleBackColor = true;
+            this.unlockButton.Click += new System.EventHandler(this.unlockButton_Click);
+            // 
             // AnimeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 434);
+            this.ClientSize = new System.Drawing.Size(478, 434);
             this.ControlBox = false;
+            this.Controls.Add(this.unlockButton);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.trashControl);
             this.Controls.Add(this.rightspamButton);
             this.Controls.Add(this.autostrafeCheckBox);
             this.Controls.Add(this.runboostbotButton);
@@ -438,6 +620,11 @@
             this.controlPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).EndInit();
             this.nickBoxContextMenuStrip.ResumeLayout(false);
+            this.trashControl.ResumeLayout(false);
+            this.aimTab.ResumeLayout(false);
+            this.aimTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fovTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smoothTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,6 +665,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aliveColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn glowColumn;
         private System.Windows.Forms.CheckBox rightspamButton;
+        private System.Windows.Forms.TabControl trashControl;
+        private System.Windows.Forms.TabPage aimTab;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox aimbotCheckBox;
+        private System.Windows.Forms.TrackBar fovTrackBar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox hitboxComboBox;
+        private System.Windows.Forms.CheckBox ffCheckBox;
+        private System.Windows.Forms.Label fovLabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label smoothLabel;
+        private System.Windows.Forms.TrackBar smoothTrackBar;
+        private System.Windows.Forms.CheckBox rscCheckBox;
+        private System.Windows.Forms.Button unlockButton;
     }
 }
 

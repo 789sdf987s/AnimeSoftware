@@ -64,7 +64,13 @@ namespace AnimeSoftware
         }
         public static int Index { get; set; }
         
-
+        public static int ShotsFired
+        {
+            get
+            {
+                return Memory.Read<Int32>(Ptr + netvars.m_iShotsFired);
+            }
+        }
         public static Vector3 Position
         {
             get
@@ -198,6 +204,13 @@ namespace AnimeSoftware
                 int ClientState = Memory.Read<Int32>(Memory.Engine + signatures.dwClientState);
 
                 Memory.Write<Vector3>(ClientState + signatures.dwClientState_ViewAngles, value);
+            }
+        }
+        public static Vector3 PunchAngle
+        {
+            get
+            {
+                return Memory.Read<Vector3>(Ptr + netvars.m_aimPunchAngle);
             }
         }
         public static Vector3 LocalViewAngle

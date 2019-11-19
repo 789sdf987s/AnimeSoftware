@@ -11,6 +11,19 @@ namespace AnimeSoftware
     class Structs
     {
         public static readonly int[] SpamWeaponList = new int[]{ 4,9,10,11,38,40,64,262208 };
+        public static Dictionary<int, string> Hitbox = new Dictionary<int, string>
+        {
+            [8] = "Head",
+            [7] = "Neck",
+            [6] = "Body"
+        };
+    }
+
+    public enum Hitbox
+    {
+        HEAD = 8,
+        NECK = 7,
+        BODY = 6
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -131,6 +144,14 @@ namespace AnimeSoftware
             return new Vector3(a.x / b, a.y / b, a.z / b);
         }
         public static Vector3 operator *(Vector3 a, int b)
+        {
+            return new Vector3(a.x * b, a.y * b, a.z * b);
+        }
+        public static Vector3 operator /(Vector3 a, float b)
+        {
+            return new Vector3(a.x / b, a.y / b, a.z / b);
+        }
+        public static Vector3 operator *(Vector3 a, float b)
         {
             return new Vector3(a.x * b, a.y * b, a.z * b);
         }

@@ -200,11 +200,11 @@ namespace AnimeSoftware
 
             UpdateNickBox();
 
-            InitCheckBox();
+            InitForm();
             InitHotkey();
         }
 
-        public void InitCheckBox()
+        public void InitForm()
         {
             bhopCheckBox.Checked = Properties.Settings.Default.bhop;
             doorspammerCheckBox.Checked = Properties.Settings.Default.doorspammer;
@@ -213,6 +213,19 @@ namespace AnimeSoftware
             runboostbotCheckBox.Checked = Properties.Settings.Default.runboostbot;
             autostrafeCheckBox.Checked = Properties.Settings.Default.autostrafe;
             autostrafeCheckBox.Enabled = bhopCheckBox.Checked;
+            aimbotCheckBox.Checked = Properties.Settings.Default.aimbot;
+            rscCheckBox.Checked = Properties.Settings.Default.rsc;
+            ffCheckBox.Checked = Properties.Settings.Default.friendlyfire;
+            fovTrackBar.Value = (int)(Properties.Settings.Default.fov*100);
+            fovLabel.Text = Properties.Settings.Default.fov.ToString();
+            smoothTrackBar.Value = (int)(Properties.Settings.Default.smooth * 100);
+            smoothLabel.Text = Properties.Settings.Default.smooth.ToString();
+            if(Properties.Settings.Default.unlock)
+                this.Width += 145;
+            foreach (string x in Structs.Hitbox.Values)
+                hitboxComboBox.Items.Add(x);
+            if(Properties.Settings.Default.boneid!=0)
+                hitboxComboBox.SelectedItem = Structs.Hitbox[Properties.Settings.Default.boneid];
         }
         public void InitHotkey()
         {
@@ -427,6 +440,75 @@ namespace AnimeSoftware
             };
             if (Properties.Settings.Default.weaponspammer)
                 weaponspammerThread.Start();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Aimbot.BestFOV(7, 30);
+        }
+
+        private void fovTrackBar_Scroll(object sender, EventArgs e)
+        {
+            float fov = fovTrackBar.Value / 100f;
+            fovLabel.Text = fov.ToString();
+            Properties.Settings.Default.fov = fov;
+            Properties.Settings.Default.Save();
+        }
+
+        private void hitboxComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.boneid = Structs.Hitbox.ElementAt(hitboxComboBox.SelectedIndex).Key;
+            Properties.Settings.Default.Save();
+        }
+
+        private void smoothTrackBar_Scroll(object sender, EventArgs e)
+        {
+            float smooth = smoothTrackBar.Value / 100f;
+            smoothLabel.Text = smooth.ToString();
+            Properties.Settings.Default.smooth = smooth;
+            Properties.Settings.Default.Save();
+        }
+
+        private void aimbotCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.aimbot = aimbotCheckBox.Checked;
+            Thread aimbotThread = new Thread(new ThreadStart(Aimbot.Start))
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true,
+            };
+            aimbotThread.Start();
+        }
+
+        private void ffCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.friendlyfire = ffCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void rscCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.rsc = rscCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void unlockButton_Click(object sender, EventArgs e)
+        {
+            if (customnameTextBox.Text == "for some reason I needed extra functions that this cheat does not imply" || customnameTextBox.Text == "sagiri best girl")
+            {
+                if(!Properties.Settings.Default.unlock)
+                    this.Width += 145;
+                Properties.Settings.Default.unlock = true;
+                Properties.Settings.Default.Save();
+            }
+            if (customnameTextBox.Text == "")
+            {
+                if (Properties.Settings.Default.unlock)
+                    this.Width -= 145;
+                Properties.Settings.Default.unlock = false;
+                Properties.Settings.Default.Save();
+            }
+                
         }
     }
 }

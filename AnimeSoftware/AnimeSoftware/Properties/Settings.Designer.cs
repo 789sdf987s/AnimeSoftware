@@ -106,5 +106,89 @@ namespace AnimeSoftware.Properties {
                 this["weaponspammer"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool friendlyfire {
+            get {
+                return ((bool)(this["friendlyfire"]));
+            }
+            set {
+                this["friendlyfire"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool aimbot {
+            get {
+                return ((bool)(this["aimbot"]));
+            }
+            set {
+                this["aimbot"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float fov {
+            get {
+                return ((float)(this["fov"]));
+            }
+            set {
+                this["fov"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int boneid {
+            get {
+                return ((int)(this["boneid"]));
+            }
+            set {
+                this["boneid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float smooth {
+            get {
+                return ((float)(this["smooth"]));
+            }
+            set {
+                this["smooth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool rsc {
+            get {
+                return ((bool)(this["rsc"]));
+            }
+            set {
+                this["rsc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool unlock {
+            get {
+                return ((bool)(this["unlock"]));
+            }
+            set {
+                this["unlock"] = value;
+            }
+        }
     }
 }
