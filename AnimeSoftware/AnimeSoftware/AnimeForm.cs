@@ -115,7 +115,7 @@ namespace AnimeSoftware
                 else
                     statusColor = Color.Green;
 
-                int ind = nickBox.Rows.Add(x.Index, x.Name, !x.IsDead);
+                int ind = nickBox.Rows.Add(x.Index, x.Name2, !x.IsDead);
                 nickBox.Rows[ind].Cells["nameColumn"].Style.ForeColor = teamColor;
                 nickBox.Rows[ind].Cells["aliveColumn"].Style.ForeColor = statusColor;
             }
@@ -128,7 +128,7 @@ namespace AnimeSoftware
                 else
                     statusColor = Color.Green;
 
-                int ind = nickBox.Rows.Add(x.Index, x.Name, !x.IsDead);
+                int ind = nickBox.Rows.Add(x.Index, x.Name2, !x.IsDead);
                 nickBox.Rows[ind].Cells["nameColumn"].Style.ForeColor = teamColor;
                 nickBox.Rows[ind].Cells["aliveColumn"].Style.ForeColor = statusColor;
             }

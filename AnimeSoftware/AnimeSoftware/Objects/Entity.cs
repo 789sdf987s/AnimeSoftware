@@ -45,7 +45,13 @@ namespace AnimeSoftware
 
             }
         }
-
+        public string Name2
+        {
+            get
+            {
+                return Encoding.UTF8.GetString(pInfo.m_szPlayerName);
+            }
+        }
         public GlowColor glowColor { get; set; }
         public GlowSettings glowSettings { get; set; }
         public bool Glowing { get; set; }
