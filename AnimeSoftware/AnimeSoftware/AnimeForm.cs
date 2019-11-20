@@ -442,11 +442,6 @@ namespace AnimeSoftware
                 weaponspammerThread.Start();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Aimbot.BestFOV(7, 30);
-        }
-
         private void fovTrackBar_Scroll(object sender, EventArgs e)
         {
             float fov = fovTrackBar.Value / 100f;

@@ -72,7 +72,6 @@
             this.hitboxComboBox = new System.Windows.Forms.ComboBox();
             this.ffCheckBox = new System.Windows.Forms.CheckBox();
             this.aimbotCheckBox = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.rscCheckBox = new System.Windows.Forms.CheckBox();
             this.smoothTrackBar = new System.Windows.Forms.TrackBar();
             this.smoothLabel = new System.Windows.Forms.Label();
@@ -522,16 +521,6 @@
             this.aimbotCheckBox.UseVisualStyleBackColor = true;
             this.aimbotCheckBox.CheckedChanged += new System.EventHandler(this.aimbotCheckBox_CheckedChanged);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(367, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // rscCheckBox
             // 
             this.rscCheckBox.AutoSize = true;
@@ -590,7 +579,6 @@
             this.ClientSize = new System.Drawing.Size(478, 434);
             this.ControlBox = false;
             this.Controls.Add(this.unlockButton);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.trashControl);
             this.Controls.Add(this.rightspamButton);
             this.Controls.Add(this.autostrafeCheckBox);
@@ -667,7 +655,6 @@
         private System.Windows.Forms.CheckBox rightspamButton;
         private System.Windows.Forms.TabControl trashControl;
         private System.Windows.Forms.TabPage aimTab;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox aimbotCheckBox;
         private System.Windows.Forms.TrackBar fovTrackBar;
         private System.Windows.Forms.Label label3;
