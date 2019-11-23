@@ -21,7 +21,7 @@ namespace AnimeSoftware
                 {
                     if (!Properties.Settings.Default.namestealer)
                         break;
-                    ConVarManager.ChangeName(x.Name);
+                    ConVarManager.ChangeName(x.Name+" ");
                     Thread.Sleep(250);
                 }
             }
