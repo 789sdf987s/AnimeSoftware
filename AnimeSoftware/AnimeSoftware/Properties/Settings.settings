@@ -30,13 +30,13 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="fov" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="boneid" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="smooth" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="rsc" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

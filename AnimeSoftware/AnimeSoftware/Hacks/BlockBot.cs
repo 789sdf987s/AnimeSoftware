@@ -43,6 +43,7 @@ namespace AnimeSoftware
                     Vector3 angle = Aimbot.CalcAngle(LocalPlayer.ViewPosition, target.Position);
                     angle.y -= LocalPlayer.ViewAngle.y;
                     angle = Aimbot.NormalizedAngle(angle);
+                    
 
                     if (speed > 10 || Math.Abs(angle.y) > 10)
                     {

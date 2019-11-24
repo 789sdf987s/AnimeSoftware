@@ -473,6 +473,7 @@ namespace AnimeSoftware
                 IsBackground = true,
             };
             aimbotThread.Start();
+            Properties.Settings.Default.Save();
         }
 
         private void ffCheckBox_CheckedChanged(object sender, EventArgs e)

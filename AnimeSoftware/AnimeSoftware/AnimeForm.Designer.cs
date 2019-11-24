@@ -65,6 +65,10 @@
             this.rightspamButton = new System.Windows.Forms.CheckBox();
             this.trashControl = new System.Windows.Forms.TabControl();
             this.aimTab = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.smoothLabel = new System.Windows.Forms.Label();
+            this.smoothTrackBar = new System.Windows.Forms.TrackBar();
+            this.rscCheckBox = new System.Windows.Forms.CheckBox();
             this.fovLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.fovTrackBar = new System.Windows.Forms.TrackBar();
@@ -72,18 +76,14 @@
             this.hitboxComboBox = new System.Windows.Forms.ComboBox();
             this.ffCheckBox = new System.Windows.Forms.CheckBox();
             this.aimbotCheckBox = new System.Windows.Forms.CheckBox();
-            this.rscCheckBox = new System.Windows.Forms.CheckBox();
-            this.smoothTrackBar = new System.Windows.Forms.TrackBar();
-            this.smoothLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.unlockButton = new System.Windows.Forms.Button();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
             this.nickBoxContextMenuStrip.SuspendLayout();
             this.trashControl.SuspendLayout();
             this.aimTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fovTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.smoothTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fovTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // refreshButton
@@ -452,6 +452,48 @@
             this.aimTab.Text = "Aimbot";
             this.aimTab.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 180);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Speed";
+            // 
+            // smoothLabel
+            // 
+            this.smoothLabel.Location = new System.Drawing.Point(20, 222);
+            this.smoothLabel.Name = "smoothLabel";
+            this.smoothLabel.Size = new System.Drawing.Size(100, 17);
+            this.smoothLabel.TabIndex = 9;
+            this.smoothLabel.Text = "0";
+            this.smoothLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // smoothTrackBar
+            // 
+            this.smoothTrackBar.AutoSize = false;
+            this.smoothTrackBar.BackColor = System.Drawing.Color.White;
+            this.smoothTrackBar.Location = new System.Drawing.Point(20, 196);
+            this.smoothTrackBar.Maximum = 10000;
+            this.smoothTrackBar.Minimum = 1;
+            this.smoothTrackBar.Name = "smoothTrackBar";
+            this.smoothTrackBar.Size = new System.Drawing.Size(100, 27);
+            this.smoothTrackBar.TabIndex = 8;
+            this.smoothTrackBar.Value = 1;
+            this.smoothTrackBar.Scroll += new System.EventHandler(this.smoothTrackBar_Scroll);
+            // 
+            // rscCheckBox
+            // 
+            this.rscCheckBox.AutoSize = true;
+            this.rscCheckBox.Location = new System.Drawing.Point(20, 47);
+            this.rscCheckBox.Name = "rscCheckBox";
+            this.rscCheckBox.Size = new System.Drawing.Size(48, 17);
+            this.rscCheckBox.TabIndex = 7;
+            this.rscCheckBox.Text = "RSC";
+            this.rscCheckBox.UseVisualStyleBackColor = true;
+            this.rscCheckBox.CheckedChanged += new System.EventHandler(this.rscCheckBox_CheckedChanged);
+            // 
             // fovLabel
             // 
             this.fovLabel.Location = new System.Drawing.Point(20, 158);
@@ -475,7 +517,7 @@
             this.fovTrackBar.AutoSize = false;
             this.fovTrackBar.BackColor = System.Drawing.Color.White;
             this.fovTrackBar.Location = new System.Drawing.Point(20, 130);
-            this.fovTrackBar.Maximum = 5000;
+            this.fovTrackBar.Maximum = 36000;
             this.fovTrackBar.Name = "fovTrackBar";
             this.fovTrackBar.Size = new System.Drawing.Size(100, 27);
             this.fovTrackBar.TabIndex = 4;
@@ -521,48 +563,6 @@
             this.aimbotCheckBox.UseVisualStyleBackColor = true;
             this.aimbotCheckBox.CheckedChanged += new System.EventHandler(this.aimbotCheckBox_CheckedChanged);
             // 
-            // rscCheckBox
-            // 
-            this.rscCheckBox.AutoSize = true;
-            this.rscCheckBox.Location = new System.Drawing.Point(20, 47);
-            this.rscCheckBox.Name = "rscCheckBox";
-            this.rscCheckBox.Size = new System.Drawing.Size(48, 17);
-            this.rscCheckBox.TabIndex = 7;
-            this.rscCheckBox.Text = "RSC";
-            this.rscCheckBox.UseVisualStyleBackColor = true;
-            this.rscCheckBox.CheckedChanged += new System.EventHandler(this.rscCheckBox_CheckedChanged);
-            // 
-            // smoothTrackBar
-            // 
-            this.smoothTrackBar.AutoSize = false;
-            this.smoothTrackBar.BackColor = System.Drawing.Color.White;
-            this.smoothTrackBar.Location = new System.Drawing.Point(20, 196);
-            this.smoothTrackBar.Maximum = 10000;
-            this.smoothTrackBar.Minimum = 1;
-            this.smoothTrackBar.Name = "smoothTrackBar";
-            this.smoothTrackBar.Size = new System.Drawing.Size(100, 27);
-            this.smoothTrackBar.TabIndex = 8;
-            this.smoothTrackBar.Value = 1;
-            this.smoothTrackBar.Scroll += new System.EventHandler(this.smoothTrackBar_Scroll);
-            // 
-            // smoothLabel
-            // 
-            this.smoothLabel.Location = new System.Drawing.Point(20, 222);
-            this.smoothLabel.Name = "smoothLabel";
-            this.smoothLabel.Size = new System.Drawing.Size(100, 17);
-            this.smoothLabel.TabIndex = 9;
-            this.smoothLabel.Text = "0";
-            this.smoothLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 180);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Speed";
-            // 
             // unlockButton
             // 
             this.unlockButton.Location = new System.Drawing.Point(464, 419);
@@ -576,7 +576,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 434);
+            this.ClientSize = new System.Drawing.Size(476, 434);
             this.ControlBox = false;
             this.Controls.Add(this.unlockButton);
             this.Controls.Add(this.trashControl);
@@ -611,8 +611,8 @@
             this.trashControl.ResumeLayout(false);
             this.aimTab.ResumeLayout(false);
             this.aimTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fovTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.smoothTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fovTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
