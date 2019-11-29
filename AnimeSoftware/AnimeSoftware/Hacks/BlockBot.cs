@@ -30,6 +30,7 @@ namespace AnimeSoftware
 
                 while ((DllImport.GetAsyncKeyState(Properties.Hotkey.Default.blockbotKey) & 0x8000) != 0)
                 {
+                    Thread.Sleep(1);
                     if (target == null)
                     {
                         target = Aimbot.BestDistance();
@@ -38,36 +39,52 @@ namespace AnimeSoftware
                     blocking = true;
                     float speed = target.Speed;
 
-
-
-                    Vector3 angle = Aimbot.CalcAngle(LocalPlayer.ViewPosition, target.Position);
-                    angle.y -= LocalPlayer.ViewAngle.y;
-                    angle = Aimbot.NormalizedAngle(angle);
-                    
-
-                    if (speed > 10 || Math.Abs(angle.y) > 10)
+                    if ((LocalPlayer.Position - target.ViewPosition).Length < 25)
                     {
-                        if (angle.y < 0.0f)
+                        if (target.Speed == 0 && (LocalPlayer.Position - target.ViewPosition).Length < 15)
                         {
-                            LocalPlayer.MoveRight();
-
+                            LocalPlayer.MoveClearX();
+                            continue;
                         }
 
-                        else if (angle.y > 0.0f)
-                        {
-                            LocalPlayer.MoveLeft();
-                        }
+                        LocalPlayer.ViewAngleY = Aimbot.NormalizedAngle(Aimbot.CalcAngle(LocalPlayer.ViewPosition, target.Position)).y;
+
+                        LocalPlayer.MoveForward();
+
                     }
                     else
                     {
-                        LocalPlayer.MoveClearY();
+                        Vector3 angle = Aimbot.CalcAngle(LocalPlayer.ViewPosition, target.Position);
+                        angle.y -= LocalPlayer.ViewAngle.y;
+                        angle = Aimbot.NormalizedAngle(angle);
+
+
+                        if (speed > 10 || Math.Abs(angle.y) > 10)
+                        {
+                            if (angle.y < 0.0f)
+                            {
+                                LocalPlayer.MoveRight();
+
+                            }
+
+                            else if (angle.y > 0.0f)
+                            {
+                                LocalPlayer.MoveLeft();
+                            }
+                        }
+                        else
+                        {
+                            LocalPlayer.MoveClearY();
+                        }
                     }
 
-
-                    Thread.Sleep(1);
+                    
                 }
                 if (blocking == true)
                 {
+                    Thread.Sleep(1);
+                    LocalPlayer.MoveClearX();
+                    Thread.Sleep(1);
                     LocalPlayer.MoveClearY();
                     blocking = false;
                 }

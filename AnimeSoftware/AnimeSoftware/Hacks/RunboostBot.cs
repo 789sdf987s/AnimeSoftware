@@ -11,7 +11,7 @@ namespace AnimeSoftware
     class RunboostBot
     {
         public static bool boosting = false;
-        public static void Start()
+        public static void Start() //disabled
         {
             while (true)
             {

@@ -50,8 +50,6 @@
             this.namestealerCheckBox = new System.Windows.Forms.CheckBox();
             this.customnameTextBox = new System.Windows.Forms.TextBox();
             this.setupButton = new System.Windows.Forms.Button();
-            this.runboostbotCheckBox = new System.Windows.Forms.CheckBox();
-            this.runboostbotButton = new System.Windows.Forms.Button();
             this.autostrafeCheckBox = new System.Windows.Forms.CheckBox();
             this.nickBoxContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.stealNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -231,7 +229,7 @@
             // doorspammerCheckBox
             // 
             this.doorspammerCheckBox.AutoSize = true;
-            this.doorspammerCheckBox.Location = new System.Drawing.Point(335, 289);
+            this.doorspammerCheckBox.Location = new System.Drawing.Point(335, 342);
             this.doorspammerCheckBox.Name = "doorspammerCheckBox";
             this.doorspammerCheckBox.Size = new System.Drawing.Size(93, 17);
             this.doorspammerCheckBox.TabIndex = 14;
@@ -242,7 +240,7 @@
             // blockbotCheckBox
             // 
             this.blockbotCheckBox.AutoSize = true;
-            this.blockbotCheckBox.Location = new System.Drawing.Point(335, 333);
+            this.blockbotCheckBox.Location = new System.Drawing.Point(335, 386);
             this.blockbotCheckBox.Name = "blockbotCheckBox";
             this.blockbotCheckBox.Size = new System.Drawing.Size(69, 17);
             this.blockbotCheckBox.TabIndex = 15;
@@ -252,7 +250,7 @@
             // 
             // doorspammerButton
             // 
-            this.doorspammerButton.Location = new System.Drawing.Point(335, 305);
+            this.doorspammerButton.Location = new System.Drawing.Point(335, 358);
             this.doorspammerButton.Name = "doorspammerButton";
             this.doorspammerButton.Size = new System.Drawing.Size(84, 23);
             this.doorspammerButton.TabIndex = 17;
@@ -263,7 +261,7 @@
             // 
             // blockbotButton
             // 
-            this.blockbotButton.Location = new System.Drawing.Point(335, 349);
+            this.blockbotButton.Location = new System.Drawing.Point(335, 402);
             this.blockbotButton.Name = "blockbotButton";
             this.blockbotButton.Size = new System.Drawing.Size(84, 23);
             this.blockbotButton.TabIndex = 18;
@@ -310,28 +308,6 @@
             this.setupButton.Text = "Set";
             this.setupButton.UseVisualStyleBackColor = true;
             this.setupButton.Click += new System.EventHandler(this.setupButton_Click);
-            // 
-            // runboostbotCheckBox
-            // 
-            this.runboostbotCheckBox.AutoSize = true;
-            this.runboostbotCheckBox.Location = new System.Drawing.Point(335, 378);
-            this.runboostbotCheckBox.Name = "runboostbotCheckBox";
-            this.runboostbotCheckBox.Size = new System.Drawing.Size(88, 17);
-            this.runboostbotCheckBox.TabIndex = 23;
-            this.runboostbotCheckBox.Text = "RunboostBot";
-            this.runboostbotCheckBox.UseVisualStyleBackColor = true;
-            this.runboostbotCheckBox.CheckedChanged += new System.EventHandler(this.runboostbotCheckBox_CheckedChanged);
-            // 
-            // runboostbotButton
-            // 
-            this.runboostbotButton.Location = new System.Drawing.Point(335, 395);
-            this.runboostbotButton.Name = "runboostbotButton";
-            this.runboostbotButton.Size = new System.Drawing.Size(84, 23);
-            this.runboostbotButton.TabIndex = 24;
-            this.runboostbotButton.Text = "button1";
-            this.runboostbotButton.UseVisualStyleBackColor = true;
-            this.runboostbotButton.Click += new System.EventHandler(this.runboostbotButton_Click);
-            this.runboostbotButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.runboostbotButton_KeyUp);
             // 
             // autostrafeCheckBox
             // 
@@ -582,8 +558,6 @@
             this.Controls.Add(this.trashControl);
             this.Controls.Add(this.rightspamButton);
             this.Controls.Add(this.autostrafeCheckBox);
-            this.Controls.Add(this.runboostbotButton);
-            this.Controls.Add(this.runboostbotCheckBox);
             this.Controls.Add(this.setupButton);
             this.Controls.Add(this.customnameTextBox);
             this.Controls.Add(this.namestealerCheckBox);
@@ -636,8 +610,6 @@
         private System.Windows.Forms.CheckBox namestealerCheckBox;
         private System.Windows.Forms.TextBox customnameTextBox;
         private System.Windows.Forms.Button setupButton;
-        private System.Windows.Forms.CheckBox runboostbotCheckBox;
-        private System.Windows.Forms.Button runboostbotButton;
         private System.Windows.Forms.CheckBox autostrafeCheckBox;
         private System.Windows.Forms.ContextMenuStrip nickBoxContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem stealNameToolStripMenuItem;
