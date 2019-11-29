@@ -22,7 +22,7 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - WeaponSpammer (sound of switching mode on glock/famas; scoping; r8 prepare)
 
 ### Screenshots 
-[![Main](https://ibb.co/gFR9HMw "Main")](https://ibb.co/gFR9HMw "Main")  
+[![Main](https://ibb.co/KDvv4H4 "Main")](https://ibb.co/KDvv4H4 "Main")  
 [![Targeted Glow](https://ibb.co/1T1MjTc "Targeted Glow")](https://ibb.co/1T1MjTc "Targeted Glow")  
 [RunboostBot showcase1](https://youtu.be/mLDMrwj9PPE)  
 [RunboostBot showcase2](https://www.youtube.com/watch?v=x7LKyMxIcCo)  
