@@ -12,7 +12,14 @@ namespace AnimeSoftware
         {
             ConVar nick = new ConVar("name");
             nick.ClearCallbacks();
-            ClientCMD.Exec("name \"" + name + " \"");
+            ClientCMD.Exec("name \"" + name + "\"");
+
+        }
+        public static void StealName(int id)
+        {
+            ConVar nick = new ConVar("name");
+            nick.ClearCallbacks();
+            ClientCMD.Exec("name \" " + new Entity(id).Name2 + " \"");
 
         }
 

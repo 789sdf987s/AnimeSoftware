@@ -89,6 +89,7 @@ namespace AnimeSoftware
                 pInfo = Memory.Read<int>(pInfo + 0xC);
                 pInfo = Memory.Read<int>(pInfo + 0x28 + (Index - 1) * 0x34);
                 player_info_s info = Memory.Read<player_info_s>(pInfo);
+                
                 return info;
             }
         }   

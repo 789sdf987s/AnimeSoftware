@@ -34,7 +34,7 @@ namespace AnimeSoftware
 
             Update = true;
             LocalPlayer.GetIndex();
-            LocalPlayer.GetName2();
+            LocalPlayer.Name = LocalPlayer.GetName2;
         }
 
         public static void CheckVersion()
@@ -53,7 +53,7 @@ namespace AnimeSoftware
             }
         }
 
-        public static string version = "v1.80";
+        public static string version = "v1.90";
         
     }
 }

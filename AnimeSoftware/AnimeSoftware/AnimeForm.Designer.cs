@@ -60,6 +60,7 @@
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeGlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voteKickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stealWhenYouFriendlyfireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightspamButton = new System.Windows.Forms.CheckBox();
             this.trashControl = new System.Windows.Forms.TabControl();
             this.aimTab = new System.Windows.Forms.TabPage();
@@ -326,15 +327,16 @@
             this.stealNameToolStripMenuItem,
             this.setGlowToolStripMenuItem,
             this.removeGlowToolStripMenuItem,
-            this.voteKickToolStripMenuItem});
+            this.voteKickToolStripMenuItem,
+            this.stealWhenYouFriendlyfireToolStripMenuItem});
             this.nickBoxContextMenuStrip.Name = "nickBoxContextMenuStrip";
-            this.nickBoxContextMenuStrip.Size = new System.Drawing.Size(148, 92);
+            this.nickBoxContextMenuStrip.Size = new System.Drawing.Size(215, 114);
             this.nickBoxContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.nickBoxContextMenuStrip_ItemClicked);
             // 
             // stealNameToolStripMenuItem
             // 
             this.stealNameToolStripMenuItem.Name = "stealNameToolStripMenuItem";
-            this.stealNameToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.stealNameToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.stealNameToolStripMenuItem.Text = "Steal Name";
             // 
             // setGlowToolStripMenuItem
@@ -345,7 +347,7 @@
             this.greenToolStripMenuItem,
             this.customToolStripMenuItem});
             this.setGlowToolStripMenuItem.Name = "setGlowToolStripMenuItem";
-            this.setGlowToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.setGlowToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.setGlowToolStripMenuItem.Text = "Set Glow";
             this.setGlowToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.setGlowToolStripMenuItem_DropDownItemClicked_1);
             // 
@@ -376,15 +378,21 @@
             // removeGlowToolStripMenuItem
             // 
             this.removeGlowToolStripMenuItem.Name = "removeGlowToolStripMenuItem";
-            this.removeGlowToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.removeGlowToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.removeGlowToolStripMenuItem.Text = "Remove Glow";
             // 
             // voteKickToolStripMenuItem
             // 
             this.voteKickToolStripMenuItem.Enabled = false;
             this.voteKickToolStripMenuItem.Name = "voteKickToolStripMenuItem";
-            this.voteKickToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.voteKickToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.voteKickToolStripMenuItem.Text = "Vote Kick";
+            // 
+            // stealWhenYouFriendlyfireToolStripMenuItem
+            // 
+            this.stealWhenYouFriendlyfireToolStripMenuItem.Name = "stealWhenYouFriendlyfireToolStripMenuItem";
+            this.stealWhenYouFriendlyfireToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.stealWhenYouFriendlyfireToolStripMenuItem.Text = "Steal when you friendlyfire";
             // 
             // rightspamButton
             // 
@@ -639,6 +647,7 @@
         private System.Windows.Forms.TrackBar smoothTrackBar;
         private System.Windows.Forms.CheckBox rscCheckBox;
         private System.Windows.Forms.Button unlockButton;
+        private System.Windows.Forms.ToolStripMenuItem stealWhenYouFriendlyfireToolStripMenuItem;
     }
 }
 

@@ -39,9 +39,12 @@ namespace AnimeSoftware
             var nameAddr = radarPtr + ind * radarStructSize + radarStructPos;
             Name = Memory.ReadString(nameAddr, 64, enc);
         }
-        public static void GetName2()
+        public static string GetName2
         {
-            Name = Encoding.UTF8.GetString(pInfo.m_szPlayerName);
+            get
+            {
+                return Encoding.UTF8.GetString(pInfo.m_szPlayerName);
+            }
         }
 
         public static string Name { get; set; }
@@ -158,6 +161,13 @@ namespace AnimeSoftware
             }
         }
 
+        public static int CrossHair
+        {
+            get
+            {
+                return Memory.Read<int>(Ptr + netvars.m_iCrosshairId);
+            }
+        }
         public static bool Dormant
         {
             get

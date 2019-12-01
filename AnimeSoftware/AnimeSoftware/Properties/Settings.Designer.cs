@@ -190,5 +190,17 @@ namespace AnimeSoftware.Properties {
                 this["unlock"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool fakefriendlyfire {
+            get {
+                return ((bool)(this["fakefriendlyfire"]));
+            }
+            set {
+                this["fakefriendlyfire"] = value;
+            }
+        }
     }
 }
