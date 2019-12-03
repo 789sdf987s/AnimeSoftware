@@ -11,6 +11,8 @@ namespace AnimeSoftware
     class BlockBot
     {
         public static bool blocking = false;
+        public static bool bb = false;
+        public static bool hb = false;
         public static void Start()
         {
             while (true)
@@ -39,9 +41,20 @@ namespace AnimeSoftware
                     blocking = true;
                     float speed = target.Speed;
 
-                    if ((LocalPlayer.Position - target.ViewPosition).Length < 25)
+                    if ((LocalPlayer.Position - target.ViewPosition).Length < 30)
                     {
-                        if (target.Speed == 0 && (LocalPlayer.Position - target.ViewPosition).Length < 15)
+                        if (LocalPlayer.Flags == 256)
+                            continue;
+
+                        if (bb)
+                        {
+                            LocalPlayer.MoveClearY();
+                            bb = false;
+                        }
+
+                        hb = true; 
+
+                        if (target.Speed == 0 && (LocalPlayer.Position - target.ViewPosition).Length < 10)
                         {
                             LocalPlayer.MoveClearX();
                             continue;
@@ -54,6 +67,7 @@ namespace AnimeSoftware
                     }
                     else
                     {
+                        bb = true;
                         Vector3 angle = Aimbot.CalcAngle(LocalPlayer.ViewPosition, target.Position);
                         angle.y -= LocalPlayer.ViewAngle.y;
                         angle = Aimbot.NormalizedAngle(angle);
@@ -80,12 +94,19 @@ namespace AnimeSoftware
 
                     
                 }
-                if (blocking == true)
+                if (blocking || hb || bb)
                 {
+                    if (hb)
+                    {
+                        LocalPlayer.MoveClearX();
+                        hb = false;
+                    }
                     Thread.Sleep(1);
-                    LocalPlayer.MoveClearX();
-                    Thread.Sleep(1);
-                    LocalPlayer.MoveClearY();
+                    if (bb)
+                    {
+                        LocalPlayer.MoveClearY();
+                        bb = false;
+                    }
                     blocking = false;
                 }
 

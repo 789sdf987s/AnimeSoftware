@@ -53,7 +53,7 @@ namespace AnimeSoftware
             }
         }
 
-        public static string version = "v1.90";
+        public static string version = "v1.91";
         
     }
 }

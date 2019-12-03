@@ -52,6 +52,8 @@ namespace AnimeSoftware
             }
             catch
             {
+                if (Properties.Settings.Default.debug)
+                    Console.WriteLine("Can't open process.");
                 return false;
             }
         }
@@ -64,6 +66,8 @@ namespace AnimeSoftware
             }
             catch
             {
+                if (Properties.Settings.Default.debug)
+                    Console.WriteLine("Can't get handle.");
                 return false;
             }
         }
@@ -92,6 +96,11 @@ namespace AnimeSoftware
                 }
                 if ((IntPtr)Client == IntPtr.Zero || (IntPtr)Engine == IntPtr.Zero || (IntPtr)vstdlib == IntPtr.Zero)
                 {
+                    if (Properties.Settings.Default.debug)
+                    {
+                        Console.WriteLine(String.Format("Client: {0}\nEngine: {1}\nvstdlib: {2}\n", Client, Engine, vstdlib));
+                        Console.WriteLine("Module error");
+                    }
                     return false;
                 }
 
@@ -99,6 +108,8 @@ namespace AnimeSoftware
             }
             catch
             {
+                if (Properties.Settings.Default.debug)
+                    Console.WriteLine("Module get error");
                 return false;
             }
             

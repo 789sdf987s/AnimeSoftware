@@ -46,7 +46,7 @@ namespace AnimeSoftware
                         }
                     }
 
-                    if (LocalPlayer.Flags == 257 || LocalPlayer.Flags == 263)
+                    if (LocalPlayer.Flags == 257 || LocalPlayer.Flags == 263 || LocalPlayer.Flags == 262)
                     {
                         LocalPlayer.Jump();
                     }
