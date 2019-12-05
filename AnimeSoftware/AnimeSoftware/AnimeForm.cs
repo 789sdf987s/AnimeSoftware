@@ -90,6 +90,13 @@ namespace AnimeSoftware
             };
                 namestealerThread.Start();
 
+            Thread perfectnameThread = new Thread(new ThreadStart(PerfectNade.Start))
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true,
+            };
+            perfectnameThread.Start();
+
             //Thread runboostThread = new Thread(new ThreadStart(RunboostBot.Start))
             //{
             //    Priority = ThreadPriority.Highest,                                       // disabled
@@ -230,6 +237,7 @@ namespace AnimeSoftware
             aimbotCheckBox.Checked = Properties.Settings.Default.aimbot;
             rscCheckBox.Checked = Properties.Settings.Default.rsc;
             ffCheckBox.Checked = Properties.Settings.Default.friendlyfire;
+            perfectnadeCheckBox.Checked = Properties.Settings.Default.perfectnade;
             fovTrackBar.Value = (int)(Properties.Settings.Default.fov*100);
             fovLabel.Text = Properties.Settings.Default.fov.ToString();
             smoothTrackBar.Value = (int)(Properties.Settings.Default.smooth * 100);
@@ -511,24 +519,30 @@ namespace AnimeSoftware
                 
         }
 
-      
+        private void perfectnadeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.perfectnade = perfectnadeCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+
 
 
         //    public static byte[] Shellcode = {
-        //        0x55,
-        //        0x8B, 0xEC,
-        //        0x83, 0xE4, 0xF8,
-        //        0x83, 0xEC, 0x44,
-        //        0x53,
-        //        0x56,
-        //        0x57,
-        //        0xBF, 0x00, 0x00, 0x00, 0x00,
-        //        0xBE, 0x00, 0x00, 0x00, 0x00,
-        //        0xB8, 0x00, 0x00, 0x00, 0x00,
-        //        0xFF, 0xE0,
-        //        0x6E, 0x61, 0x6D, 0x65, 0x00,
-        //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
-        //    };
+        //                0x55,
+        //                0x8B, 0xEC,
+        //                0x83, 0xE4, 0xF8,
+        //                0x83, 0xEC, 0x44,
+        //                0x53,
+        //                0x56,
+        //                0x57,
+        //                0xBF, 0x00, 0x00, 0x00, 0x00,
+        //                0xBE, 0x00, 0x00, 0x00, 0x00,
+        //                0xB8, 0x00, 0x00, 0x00, 0x00,
+        //                0xFF, 0xE0,
+        //                0x6E, 0x61, 0x6D, 0x65, 0x00,
+        //                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+        //            };
 
         //    public static int Size = Shellcode.Length;
         //    public static IntPtr Address;
@@ -561,7 +575,7 @@ namespace AnimeSoftware
         //        }
         //        else
         //        {
-        //            name_bytes = Encoding.UTF8.GetBytes(name );
+        //            name_bytes = Encoding.UTF8.GetBytes(name);
         //        }
 
         //        Buffer.BlockCopy(reset, 0, Shellcode, 0x22, reset.Length);

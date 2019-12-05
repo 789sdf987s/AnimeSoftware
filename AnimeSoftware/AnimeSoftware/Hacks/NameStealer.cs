@@ -64,7 +64,7 @@ namespace AnimeSoftware
 
         public static void ChangeName() // pasted from real gamer. another method to change
         {
-            string name = "\n\xAD\xAD\xAD\0";
+            string name = "\n\xAD\xAD\xAD";
             byte len = (byte)name.Length;
             byte[] a = { 0x6, (byte)(0x8 + len), 0xA, (byte)(0x6 + len), 0xA, (byte)(0x4 + len), 0x12, len }; // prepend needed bytes
             byte[] b = Encoding.ASCII.GetBytes(name);

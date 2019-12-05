@@ -76,6 +76,7 @@
             this.ffCheckBox = new System.Windows.Forms.CheckBox();
             this.aimbotCheckBox = new System.Windows.Forms.CheckBox();
             this.unlockButton = new System.Windows.Forms.Button();
+            this.perfectnadeCheckBox = new System.Windows.Forms.CheckBox();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickBox)).BeginInit();
             this.nickBoxContextMenuStrip.SuspendLayout();
@@ -556,12 +557,24 @@
             this.unlockButton.UseVisualStyleBackColor = true;
             this.unlockButton.Click += new System.EventHandler(this.unlockButton_Click);
             // 
+            // perfectnadeCheckBox
+            // 
+            this.perfectnadeCheckBox.AutoSize = true;
+            this.perfectnadeCheckBox.Location = new System.Drawing.Point(335, 156);
+            this.perfectnadeCheckBox.Name = "perfectnadeCheckBox";
+            this.perfectnadeCheckBox.Size = new System.Drawing.Size(68, 17);
+            this.perfectnadeCheckBox.TabIndex = 34;
+            this.perfectnadeCheckBox.Text = "-98 nade";
+            this.perfectnadeCheckBox.UseVisualStyleBackColor = true;
+            this.perfectnadeCheckBox.CheckedChanged += new System.EventHandler(this.perfectnadeCheckBox_CheckedChanged);
+            // 
             // AnimeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 434);
             this.ControlBox = false;
+            this.Controls.Add(this.perfectnadeCheckBox);
             this.Controls.Add(this.unlockButton);
             this.Controls.Add(this.trashControl);
             this.Controls.Add(this.rightspamButton);
@@ -648,6 +661,7 @@
         private System.Windows.Forms.CheckBox rscCheckBox;
         private System.Windows.Forms.Button unlockButton;
         private System.Windows.Forms.ToolStripMenuItem stealWhenYouFriendlyfireToolStripMenuItem;
+        private System.Windows.Forms.CheckBox perfectnadeCheckBox;
     }
 }
 

@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Checks.cs" />
     <Compile Include="Hacks\ConVarManager.cs" />
+    <Compile Include="Hacks\PerfectNade.cs" />
     <Compile Include="Hacks\Visuals.cs" />
     <Compile Include="Hacks\NameStealer.cs" />
     <Compile Include="Hacks\RunboostBot.cs" />
