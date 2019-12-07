@@ -22,6 +22,7 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - WeaponSpammer (sound of switching mode on glock/famas; scoping; r8 prepare)
 - FakeFF (change nickname, when you aiming to teammates for fakename damage message. [showcase](https://gph.is/g/Zyzj6qW "showcase"))
 - 98 Nade (if you are without armor, look up, hold down the right mouse button and you will inflict 98 damage from a nade)
+- ChatBreaker
 
 ### Screenshots 
 [Main](https://ibb.co/KDvv4H4 "Main")  
