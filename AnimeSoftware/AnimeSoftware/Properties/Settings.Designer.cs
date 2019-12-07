@@ -226,5 +226,17 @@ namespace AnimeSoftware.Properties {
                 this["perfectnade"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool chatcleaner {
+            get {
+                return ((bool)(this["chatcleaner"]));
+            }
+            set {
+                this["chatcleaner"] = value;
+            }
+        }
     }
 }

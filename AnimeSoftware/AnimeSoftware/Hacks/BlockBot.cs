@@ -40,8 +40,7 @@ namespace AnimeSoftware
 
                     blocking = true;
                     float speed = target.Speed;
-
-                    if ((LocalPlayer.Position - target.ViewPosition).Length < 30)
+                    if ((LocalPlayer.Position - target.BonePosition(8)).Length < 30)
                     {
                         if (LocalPlayer.Flags == 256)
                             continue;

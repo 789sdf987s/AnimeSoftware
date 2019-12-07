@@ -525,6 +525,21 @@ namespace AnimeSoftware
             Properties.Settings.Default.Save();
         }
 
+        private void chatcleanerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.chatcleaner = chatcleanerCheckBox.Checked;
+            Properties.Settings.Default.Save();
+
+            Thread chatcleanerThread = new Thread(new ThreadStart(ChatSpammer.ChatCleaner))
+            {
+                Priority = ThreadPriority.Highest,
+                IsBackground = true,
+            };
+            chatcleanerThread.Start();
+        }
+
+
+
 
 
 
