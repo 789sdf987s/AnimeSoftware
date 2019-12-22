@@ -332,7 +332,7 @@
             this.voteKickToolStripMenuItem,
             this.stealWhenYouFriendlyfireToolStripMenuItem});
             this.nickBoxContextMenuStrip.Name = "nickBoxContextMenuStrip";
-            this.nickBoxContextMenuStrip.Size = new System.Drawing.Size(215, 114);
+            this.nickBoxContextMenuStrip.Size = new System.Drawing.Size(215, 136);
             this.nickBoxContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.nickBoxContextMenuStrip_ItemClicked);
             // 
             // stealNameToolStripMenuItem

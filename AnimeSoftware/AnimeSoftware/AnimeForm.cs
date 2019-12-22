@@ -180,9 +180,9 @@ namespace AnimeSoftware
 
         private void changeButton_Click(object sender, EventArgs e)
         {
-            string nick = nickBox.Rows[nickBox.SelectedCells[0].RowIndex].Cells[nickBox.Columns["nameColumn"].Index].Value.ToString();
+            int id = Convert.ToInt32(nickBox.Rows[nickBox.SelectedCells[0].RowIndex].Cells[nickBox.Columns["idColumn"].Index].Value);
 
-            ConVarManager.StealName((int)nickBox.Rows[nickBox.SelectedCells[0].RowIndex].Cells[nickBox.Columns["idColumn"].Index].Value);
+            ConVarManager.StealName(id);
 
             UpdateNickBox();
         }
@@ -543,84 +543,85 @@ namespace AnimeSoftware
 
 
 
-    //    public static byte[] Shellcode = {
-    //                    0x55,
-    //                    0x8B, 0xEC,
-    //                    0x83, 0xE4, 0xF8,
-    //                    0x83, 0xEC, 0x44,
-    //                    0x53,
-    //                    0x56,
-    //                    0x57,
-    //                    0xBF, 0x00, 0x00, 0x00, 0x00,
-    //                    0xBE, 0x00, 0x00, 0x00, 0x00,
-    //                    0xB8, 0x00, 0x00, 0x00, 0x00,
-    //                    0xFF, 0xE0,
-    //                    0x6E, 0x61, 0x6D, 0x65, 0x00,
-    //                    0x00
-    //                };
 
-    //    public static int Size = Shellcode.Length;
-    //    public static IntPtr Address;
-    //    private void button1_Click_1(object sender, EventArgs e)
-    //    {
-    //        string name = "\n\xAD\xAD\xAD";
-    //        Allocator alloc = new Allocator();
+        //    public static byte[] Shellcode = {
+        //                    0x55,
+        //                    0x8B, 0xEC,
+        //                    0x83, 0xE4, 0xF8,
+        //                    0x83, 0xEC, 0x44,
+        //                    0x53,
+        //                    0x56,
+        //                    0x57,
+        //                    0xBF, 0x00, 0x00, 0x00, 0x00,
+        //                    0xBE, 0x00, 0x00, 0x00, 0x00,
+        //                    0xB8, 0x00, 0x00, 0x00, 0x00,
+        //                    0xFF, 0xE0,
+        //                    0x6E, 0x61, 0x6D, 0x65, 0x00,
+        //                    0x00
+        //                };
 
-    //        if (Address == IntPtr.Zero)
-    //        {
-    //            Address = alloc.Alloc(Size);
+        //    public static int Size = Shellcode.Length;
+        //    public static IntPtr Address;
+        //    private void button1_Click_1(object sender, EventArgs e)
+        //    {
+        //        string name = "\n\xAD\xAD\xAD";
+        //        Allocator alloc = new Allocator();
 
-    //            if (Address == IntPtr.Zero)
-    //                return;
+        //        if (Address == IntPtr.Zero)
+        //        {
+        //            Address = alloc.Alloc(Size);
 
-    //            Buffer.BlockCopy(BitConverter.GetBytes((int)Address + 0x1D), 0, Shellcode, 0xD, 4);
-    //            Buffer.BlockCopy(BitConverter.GetBytes((int)Address + 0x22), 0, Shellcode, 0x12, 4);
-    //            Buffer.BlockCopy(BitConverter.GetBytes(Memory.Engine + ScannedOffsets.SetConVar), 0, Shellcode, 0x17, 4);
+        //            if (Address == IntPtr.Zero)
+        //                return;
 
-    //        }
+        //            Buffer.BlockCopy(BitConverter.GetBytes((int)Address + 0x1D), 0, Shellcode, 0xD, 4);
+        //            Buffer.BlockCopy(BitConverter.GetBytes((int)Address + 0x22), 0, Shellcode, 0x12, 4);
+        //            Buffer.BlockCopy(BitConverter.GetBytes(Memory.Engine + ScannedOffsets.SetConVar), 0, Shellcode, 0x17, 4);
 
-    //        if (!LocalPlayer.InGame) return;
+        //        }
 
-    //        byte[] reset = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+        //        if (!LocalPlayer.InGame) return;
 
-    //        byte[] name_bytes;
-    //        if (name == "\n")
-    //        {
-    //            name_bytes = Encoding.UTF8.GetBytes('\n' + "\0");
-    //        }
-    //        else
-    //        {
-    //            name_bytes = Encoding.UTF8.GetBytes(name + "\0");
-    //        }
+        //        byte[] reset = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
-    //        //Buffer.BlockCopy(reset, 0, Shellcode, 0x22, reset.Length);
-    //        //Buffer.BlockCopy(name_bytes, 0, Shellcode, 0x22, name_bytes.Length);
-    //        Memory.WriteProcessMemory(Memory.pHandle, Address, Shellcode, Shellcode.Length, 0);
+        //        byte[] name_bytes;
+        //        if (name == "\n")
+        //        {
+        //            name_bytes = Encoding.UTF8.GetBytes('\n' + "\0");
+        //        }
+        //        else
+        //        {
+        //            name_bytes = Encoding.UTF8.GetBytes(name + "\0");
+        //        }
 
-    //        for (int i = 0; i < 1000; i++)
-    //        {
-    //            CreateThread.Execute(Address);
-    //            Thread.Sleep(1);
-    //        }
+        //        //Buffer.BlockCopy(reset, 0, Shellcode, 0x22, reset.Length);
+        //        //Buffer.BlockCopy(name_bytes, 0, Shellcode, 0x22, name_bytes.Length);
+        //        Memory.WriteProcessMemory(Memory.pHandle, Address, Shellcode, Shellcode.Length, 0);
 
-    //    }
+        //        for (int i = 0; i < 1000; i++)
+        //        {
+        //            CreateThread.Execute(Address);
+        //            Thread.Sleep(1);
+        //        }
 
-    //}
-    //public static class CreateThread
-    //{
-    //    public static void Create(IntPtr address, byte[] shellcode)
-    //    {
-    //        Memory.WriteProcessMemory(Memory.pHandle, address, shellcode, shellcode.Length, 0);
-    //        IntPtr _Thread = DllImport.CreateRemoteThread(Memory.pHandle, (IntPtr)null, IntPtr.Zero, address, (IntPtr)null, 0, (IntPtr)null);
-    //        DllImport.WaitForSingleObject(_Thread, 0xFFFFFFFF);
-    //        DllImport.CloseHandle(_Thread);
-    //    }
+        //    }
 
-    //    public static void Execute(IntPtr address)
-    //    {
-    //        IntPtr _Thread = DllImport.CreateRemoteThread(Memory.pHandle, (IntPtr)null, IntPtr.Zero, address, (IntPtr)null, 0, (IntPtr)null);
-    //        DllImport.WaitForSingleObject(_Thread, 0xFFFFFFFF);
-    //        DllImport.CloseHandle(_Thread);
-    //    }
+        //}
+        //public static class CreateThread
+        //{
+        //    public static void Create(IntPtr address, byte[] shellcode)
+        //    {
+        //        Memory.WriteProcessMemory(Memory.pHandle, address, shellcode, shellcode.Length, 0);
+        //        IntPtr _Thread = DllImport.CreateRemoteThread(Memory.pHandle, (IntPtr)null, IntPtr.Zero, address, (IntPtr)null, 0, (IntPtr)null);
+        //        DllImport.WaitForSingleObject(_Thread, 0xFFFFFFFF);
+        //        DllImport.CloseHandle(_Thread);
+        //    }
+
+        //    public static void Execute(IntPtr address)
+        //    {
+        //        IntPtr _Thread = DllImport.CreateRemoteThread(Memory.pHandle, (IntPtr)null, IntPtr.Zero, address, (IntPtr)null, 0, (IntPtr)null);
+        //        DllImport.WaitForSingleObject(_Thread, 0xFFFFFFFF);
+        //        DllImport.CloseHandle(_Thread);
+        //    }
     }
 }
