@@ -25,8 +25,8 @@ I recommend using this hack in conjunction with some kind of internal hack that 
 - ChatBreaker
 
 ### Screenshots 
-[Main](https://ibb.co/KDvv4H4 "Main")  
-[Targeted Glow](https://ibb.co/1T1MjTc "Targeted Glow")  
+[Main](https://ibb.co/QFchFK9 "Main")  
+[Targeted Glow](https://ibb.co/Bzdv36w "Targeted Glow")  
 
 ### TODO
 - ClanTag changer.
