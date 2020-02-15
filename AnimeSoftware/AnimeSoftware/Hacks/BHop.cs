@@ -11,6 +11,7 @@ namespace AnimeSoftware
     class BHop
     {
         public static bool strafe = false;
+        private static Random rnd = new Random();
         public static void Start()
         {
             while (true)
@@ -48,7 +49,10 @@ namespace AnimeSoftware
 
                     if (LocalPlayer.Flags == 257 || LocalPlayer.Flags == 263)
                     {
+                        if (rnd.Next(100) < Properties.Settings.Default.bhopChoke)
+                            Thread.Sleep(20);
                         LocalPlayer.Jump();
+
                     }
                     oldAngle = LocalPlayer.ViewAngle;
                 }

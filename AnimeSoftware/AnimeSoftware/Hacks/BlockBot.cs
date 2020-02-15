@@ -72,7 +72,7 @@ namespace AnimeSoftware
                         angle = Aimbot.NormalizedAngle(angle);
 
 
-                        if (speed > 10 || Math.Abs(angle.y) > 10)
+                        if (speed > 1 || Math.Abs(angle.y) > 1)
                         {
                             if (angle.y < 0.0f)
                             {

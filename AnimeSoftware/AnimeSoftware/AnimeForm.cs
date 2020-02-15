@@ -242,6 +242,7 @@ namespace AnimeSoftware
             fovLabel.Text = Properties.Settings.Default.fov.ToString();
             smoothTrackBar.Value = (int)(Properties.Settings.Default.smooth * 100);
             smoothLabel.Text = Properties.Settings.Default.smooth.ToString();
+            chokeTrackBar.Value = Properties.Settings.Default.bhopChoke;
             if(Properties.Settings.Default.unlock)
                 this.Width += 145;
             foreach (string x in Structs.Hitbox.Values)
@@ -299,7 +300,7 @@ namespace AnimeSoftware
             Properties.Hotkey.Default.doorspammerKey = e.KeyValue;
             Properties.Hotkey.Default.Save();
             InitHotkey();
-            label1.Focus();
+            label6.Focus();
         }
 
         private void blockbotButton_KeyUp(object sender, KeyEventArgs e)
@@ -307,14 +308,14 @@ namespace AnimeSoftware
             Properties.Hotkey.Default.blockbotKey = e.KeyValue;
             Properties.Hotkey.Default.Save();
             InitHotkey();
-            label1.Focus();
+            label6.Focus();
         }
         private void runboostbotButton_KeyUp(object sender, KeyEventArgs e)
         {
             Properties.Hotkey.Default.runboostbotKey = e.KeyValue;
             Properties.Hotkey.Default.Save();
             InitHotkey();
-            label1.Focus();
+            label6.Focus();
         }
         private void fullrefreshButton_Click(object sender, EventArgs e)
         {
@@ -536,6 +537,12 @@ namespace AnimeSoftware
                 IsBackground = true,
             };
             chatcleanerThread.Start();
+        }
+
+        private void chokeTrackBar_Scroll(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.bhopChoke = chokeTrackBar.Value;
+            Properties.Settings.Default.Save();
         }
 
 

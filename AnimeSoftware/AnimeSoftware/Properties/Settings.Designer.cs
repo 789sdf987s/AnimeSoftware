@@ -238,5 +238,17 @@ namespace AnimeSoftware.Properties {
                 this["chatcleaner"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int bhopChoke {
+            get {
+                return ((int)(this["bhopChoke"]));
+            }
+            set {
+                this["bhopChoke"] = value;
+            }
+        }
     }
 }
